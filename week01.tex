@@ -1,0 +1,379 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Vector spaces and subspaces}
+\rhead{Week 01}
+
+% \title{}
+% \author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Introduction}%
+\label{sec:introduction}
+
+Let us start by going over mathematical basics that we will need for this course.
+\lb
+\begin{itemize}
+    \item
+        A \emph{set} is a collection of objects. Examples include the set of integers
+        $\Z$, the set of real numbers $\R$, the set of nonnegative integers $\Z_{\geq 0}$.
+
+        \pr
+        $A \subseteq B$ indicates that every element in $A$ is
+        also an element in $B$. We say in this case that $A$ is a \emph{subset} of $B$.
+
+        \pr
+        A subset may be declard by pruning a set by a specified condition. For example the
+        set of even integers or the set of odd integers.
+        \[ \bb E = \cb{ n ∈ \Z ~\vert~ n \tx{ is even }} \subseteq \Z\]
+        \[ \bb O = \cb{ n ∈ \Z ~\vert~ n \tx{ is odd}} \subseteq \Z\]
+
+        \pr
+        If $A \subseteq B$ and at least one element of $B$ is not in $A$, we say that $A$ is
+        properly contained in $B$, in symbols $A \subsetneq B$.
+
+    \newpage
+    \item
+        A function $\map{A}[f]{B}$ between sets is an assignment that chooses for every $a ∈ A$
+        an element $f(a) = b ∈ B$. For example
+        \begin{align*}
+            &\map{\Z}[g]{\Z} \\
+            &x \mapsto 2x + 1
+        \end{align*}
+        sends every real number $x$ to twice its value plus one. That is, $g(1) = 3$,
+        $g(2) = 5$, and so on $\ldots$.
+
+        \pr
+        domain,
+        codomain,
+        image of $x$ under $f$
+
+        \pr
+        The set of all possible functions between two sets $A$ and $B$ is
+        denoted by $\mathcal{F}(A,B)$.
+
+        \pr
+        For any set $A$, there is the function $\map{A}[\id{A}]{A}$ that sends every element
+        back to itself.
+        \[ \id{A}(a) = a \qquad \tx{for all } a ∈ A \]
+
+    \newpage
+    \item
+        A function $\map{A}[f]{B}$ can have the following properties:
+        \begin{itemize}
+            \item[] \emph{injective} \\
+                No two distinct elements $a \neq b$ in $A$ have the same value
+                $f(a) \neq f(b)$ under $f$. \\
+                In other words, if $f$ is injective, then $f(a) \neq f(b)$ implies that
+                $a \neq b$.
+            \item[] \emph{surjective} \\
+                Every element $b$ in $B$ is the image of some element $a$ in $A$. \\
+                Equivalently, for all $b ∈ B$ there is an $a ∈ A$ such that $b = f(a)$.
+            \item[] \emph{bijective}\\
+                The function is both injective and surjective.
+        \lb
+        \textbf{Discussion}
+        \pr
+        \q{Which of these properties apply to $g(x) = 2x + 1$ defined above as a function
+        from $\Z$ to $\Z$?} \q{If not, how can you change the definition to make it bijective?}
+        \end{itemize}
+
+    \newpage
+    \item
+        Two functions of the form
+        $\map{A}[f]{B}$ and
+        $\map{B}[g]{C}$ may be concatinated. This means, whatever the first $f$ functions spits
+        out is fed back into the next function $g$.
+        \[ a \mapsto f(a) \mapsto g(f(a)) \]
+        This is formally called \emph{composition} of $f$ and $g$ and denoted by
+        \[ (g \circ f) (a) = g(f(a)) \]
+        Notice, this only makes sense if the domain of $g$ is also the codomain of $f$.
+
+    \newpage
+    \item
+        An \emph{inverse} of a function $\map{A}[f]{B}$ is a function in the \emph{opposite}
+        direction $\map{B}[h]{A}$ with the property that
+        \[ h(f(a)) = a \qquad \tx{for all } a ∈ A \]
+        and
+        \[ f(h(b)) = b \qquad \tx{for all } b ∈ B \]
+        Intuitively, this means $h$ is undoing whatever $f$ was doing. For example,
+        the function $h(y) = \frac{y-1}{2}$ from $\bb O$ to $\Z$ is an inverse to
+        the function $g(x) = 2x + 1$.
+\end{itemize}
+
+\pr
+We will wrap up this introduction with the following theorem
+
+\lb
+\textbf{Theorem}
+\pr
+A function $\map{A}[f]{B}$ is invertible if and only if it is bijective
+% \begin{proof}
+% \end{proof}
+
+
+
+
+
+
+
+
+
+\newpage
+\section*{Vector spaces}%
+\label{sec:vector spaces}
+\pr
+\textbf{Textbook:} Section 1.1
+
+
+
+\begin{ddef}{1.1.1}
+    A (real) vector space $(V, + , \cdot)$ consists of a set $V$ and two operations that we
+    call \emph{addition} $(+)$ and \emph{scalar multiplication}
+    \[ \map{V \times V}[+]{V} \]
+    \[ \map{\R \times V}[\cdot]{V} \]
+    such that the following axioms hold
+    \begin{enumerate}
+        \item
+            (additive closure)
+            \qquad $\vec x + \vec y ∈ v$,
+            for all $\vec x, \vec y ∈ V$
+        \item
+            (multiplicative closure)
+            \qquad $α \cdot \vec x ∈ V$,
+            for all $\vec x ∈ V$ and scalar $α ∈ V$
+        \item
+            (commutativity)
+            \qquad $\vec x + \vec y = \vec y + \vec x$,
+            for all $\vec x, \vec y ∈ V$
+        \item
+            (additive associativity)
+            \qquad $(\vec x + \vec y) + \vec z =\vec x + (\vec y + \vec z)$,
+            for all $\vec x , \vec y , \vec z ∈ V$
+        \item
+            (additive identity)
+            \qquad There exists a vector $\vec 0 ∈ V$ such that $\vec x + \vec 0 = \vec x$
+            for all $\vec x ∈  V$
+        \item
+            (additive inverse)
+            \qquad For each $\vec x ∈ V$, there exists a vector $- \vec x ∈ V$
+            with the property that $\vec x + (- \vec x) = \vec 0$
+        \item
+            (multiplicative associativity)
+            \qquad $(α \cdot β) \cdot \vec x = α \cdot ( β \cdot \vec x)$,
+            for all $α, β ∈ \R$ and $\vec x ∈ V$
+        \item
+            (distributivity over vector addition)
+            \qquad $α \cdot ( \vec x + \vec y) = α \vec x + α \vec y$,
+            for all $α ∈ \R$ and $\vec x, \vec y ∈ V$
+        \item
+            (distributivity over scalar addition)
+            \qquad $(α + β) \cdot  \vec x = α \vec x + β \vec x$,
+            for all $α, β ∈ \R$ and $\vec x ∈ V$
+        \item
+            (identity property)
+            \qquad $1 \cdot \vec x = \vec x$,
+            for all $\vec x ∈ V$
+    \end{enumerate}
+\end{ddef}
+
+
+\lb
+% \begin{rmk}{}~\newline
+\textbf{Remark}
+\begin{itemize}
+    \item
+        For elements in a vector space $V$, we write $\vec x, \vec y, \ldots∈ V$.
+        The textbook writes ${\bf x, y, } \ldots ∈ V$.
+    \item
+        We often abbreviate $α \cdot \vec x$ with $α \vec x$.
+    \item
+        Elements in a vetcor space a called vectors. Be aware that anything can be a vector,
+        even functions for example.
+    \item
+        We say that a vector space is \emph{real} if the scalars are real numbers. For now every vector space is real, we will only later allow the scalars to be \emph{complex numbers}
+        and such.
+\end{itemize}
+% \end{rmk}
+
+
+
+\newpage
+\pr
+\textbf{Examples}
+    \begin{enumerate}
+        \item The real numbers $\R$ form a vector space with 'usual' addition $+$
+            and multiplication $\cdot$.
+        \item An n-tuple of real numbers can be written as $(v_1, v_2, \ldots, v_n)$ where
+            each $v_i ∈ \R$. The set of n-tuples is a vector space denoted by $\R^n$.
+            \pr
+            \q{What are the operations $+$ and $\cdot$?}
+            \q{What is the additive identity element $\vec 0$?}
+        \item
+            The set $\mat{n, m}{\R}$ of $n \times m$ matrices with componentwise addition
+            and scalar multiplication.
+        \item
+            The set
+            \[ \pol{n}{\R} = \lbrace  a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \vert a_0, \ldots, a_n ∈ \R \rbrace \] is
+            a vector space. \\
+            Addition of two polynomials is applied to coefficientwise and the identity element $\vec 0$ is the
+            polynomial that is constantly zero $p(x) = 0$.
+        \item
+            The set
+            \[ \cal F (\R, \R) \]
+            of functions from the real numbers to the real numbers is a vector space
+    \end{enumerate}
+\vspace{20pt}
+\textbf{Intuition}
+\lb
+In many cases vectors may be represented with vectors becasue they too have a
+direction and a magnitude. But be careful, every analogy has its limitations.
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\begin{enumerate}
+    \item[(I)]
+        Is the set of 2-tuples of integers $\Z^2$ a real vector space?
+        \pr \textbf{Hint: } To verify that something is a vector space, we need to check
+        \emph{all} axioms in the definition. However, to prove the contrary, it is enough to
+        disprove \emph{one single} axiom!
+
+
+
+
+    \vspace{400pt}
+    \item[(II)]
+        Is the set $\pol{n}{\R}'$ of polynomials of \emph{exactly} degree $n$ a vector space?
+\end{enumerate}
+
+
+
+
+
+
+
+\newpage
+\subsection*{Some Properties of vector spaces}%
+\label{sub:Some Properties of vector spaces}
+
+Whenever we introduce a new mathematical \emph{object}, such as a vector space,
+we may not take anything for granted. In some ways, vectors behave like real numbers
+(addition, scalar multiplication, zero element, additive inverse $\ldots$) but in many ways
+they do not!\\
+For example, for $3 ∈ \R$ we can write $ \frac{1}{3} $, but for a vector
+$\vec v ∈ V$ we may not wirte $\frac{1}{\vec v}$. To be a good mathematican, it is very helpful
+to be extremely pedantic!
+
+
+
+\lb
+\textbf{Theorem (Cancellation)}
+\lb
+Let $V$ be a vector space and $\vec u, \vec v, \vec w ∈ V$. If
+\[ \vec u + \vec w = \vec v + \vec w \]
+the
+\[ \vec u = \vec v \]
+
+\begin{proof}
+    \q{To practice, write down which property of vector spaces we are using in the following!}
+    \begin{align*}
+        \vec u
+        &= \vec u + 0 \\
+        &= \vec u + (\vec w - \vec w) \\
+        &\vdots
+    \end{align*}
+\end{proof}
+
+
+
+
+\lb
+\textbf{Proposition}
+Let $V$ be a vector space and $\vec v \in V$, then
+\[ 0 \vec v = \vec 0 \]
+\q{Explain the difference between $0$ and $\vec 0$.}
+
+\begin{proof}
+    \begin{align*}
+        \vec 0 + 0 \vec v
+        &= 0 \vec v \\
+        &= (0 + 0) \vec v \\
+        &= 0 \vec v + 0 \vec v
+    \end{align*}
+    So by the cancellation theorem we can simplify
+    \[ \vec 0 + 0 \vec v = 0 \vec v \]
+    to
+    \[ \vec 0 = 0 \vec v \]
+\end{proof}
+
+
+
+\lb
+\textbf{Proposition}
+Let $V$ be a vector space and $\vec v \in V$, then
+\[ -1 \cdot \vec v = - \vec v \]
+\begin{proof}
+\end{proof}
+
+
+
+
+
+\newpage
+\lb
+Notice that the symbol $+$ does \emph{not} necessarily refer to the standard addition, it
+could be defined in a different way as we can observe in the following.
+\textbf{Discussion}
+Let $(V, \diamond , \star )$ be a vector space with the following ingredients:
+\begin{enumerate}
+    \item The set $V$ of 2-tuples of real numbers $\ttpl{u_1}{u_2}$.
+    \item Addition of 2-tuples
+        \[ \ttpl{u_1}{u_2} \diamond \ttpl{v_1}{v_2}  = \ttpl{u_1 + v_1 + 1}{u_2 + v_2 + 1} \]
+    \item Scalar multiplication
+        \[ α \star \ttpl{u_1}{u_2} = \ttpl{α u_1 + α - 1 }{β u_2 + β - 1} \]
+\end{enumerate}
+\lb
+\q{Is this a vector vector space? What would the identity element $\vec 0$ be?}
+\q{What is the inverse of an element $\ttpl{u_1}{u_2}$?}
+\textbf{Hint} Look at the propositions from the previous page.
+
+
+
+
+
+
+\newpage
+\section*{Subspaces}%
+\label{sec:Subspaces}
+\pr
+\textbf{Textbook:} Section 1.2
+
+\lb
+\textbf{Definition}
+\pr
+A \emph{subspace} $U$ of a vector space $(V, +, \cdot)$ is a subset $U \subseteq V$
+that is a vector space in its own right (with the same addition and scalar multiplication of $V$)
+
+
+
+
+\end{document}
