@@ -1,5 +1,4 @@
-\documentclass[10pt]{article}
-
+\documentclass[letterpaper, 10pt]{article}
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb,scrextend}
 \usepackage{fancyhdr}
@@ -18,11 +17,90 @@
 \chead{Vector spaces and subspaces}
 \rhead{Week 01}
 
-% \title{}
-% \author{Lennart Döppenschmitt}
-% \maketitle
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+\maketitle
 % \tableofcontents
 
+
+\section*{Welcome,}%
+my name is Lennart, I will be your instructor for Linear Algebra II this term.
+I am a graduate student in the maths department and with my advisor I work on differential
+geometry and the moduli space of Kähler metrics.
+Apart from math (surprisingly similar though), I enjoy rock climbing.
+\lb
+You can reach me with questions about the course via \textbf{email}.
+For math questions this course uses \emph{Piazza}.
+\lb
+My \textbf{office hours} take place on Wednesdays at 2 pm (EST) on Zoom.
+
+\lb
+\lb
+\textbf{A few things about the class:}
+\begin{itemize}
+    \item
+        Details can be found in the syllabus on Quercus
+        \href{https://q.utoronto.ca}
+        {\ble{\texttt{q.utoronto.ca}}}.
+
+
+    \item The content will build on what you have learned in MAT223 with a
+        particular focus on abstraction. Thinking abstractly is an important skill and
+        makes arguments more powerful as it applies to a wider range of applications.
+
+    \item
+        A weekly class schedule, which we will follow closely, can be found at
+        the end of the syllabus.
+
+    \item
+        All lectures will be recorded and made availble on YouTube for
+        \emph{one} week, link will follow.
+        Office hours will \emph{not} be recorded.
+\end{itemize}
+
+
+
+
+
+\lb
+\textbf{About the lectures:}
+\begin{itemize}
+    \item
+        Our lectures will be a mix of me explaining new math to you, time for you to try out
+        what you just learned in short exercises and discussions and then a discussion round
+        where we discuss the answer together.
+    \item
+        I will try to give Definitions, Theorems, etc. the same numbers as in the textbook.
+    \item
+        These notes will be available on Quercus.
+        Alternatively, you can access them on 
+        \pr
+        \href{https://www.github.com/researchnix/mat224}
+        {\ble{\texttt{github.com/researchnix/mat224}}}.
+        \pr
+        (The notes might be under construction up until the start of the lecture, but I
+        encourage you to have a copy of them ready for the lecture to fill in
+        the blanks and scribble down ideas for the discussions.)
+    \item
+        Please let me know if there are mistakes in the notes, there will be plenty.
+\end{itemize}
+
+\lb
+% \textbf{Miscellaneous:}
+\textbf{About Zoom:}
+\begin{itemize}
+    \item We will use the same Zoom meeting ID for lectures and office hours.
+            Please do \textbf{NOT} share the ID or password publically.
+    \item To join you need a Zoom account with an official UofT email.
+    \item Please mute yourself in Zoom.
+    \item For questions, you can \emph{virtually} raise your hand and unmute yourself when
+        I ask you to.
+    \item Please only use the chat function for lecture relevant messages and please don't spoil
+        answers to give everyone time to think about the questions.
+\end{itemize}
+
+
+\newpage
 \section*{Introduction}%
 \label{sec:introduction}
 
@@ -142,61 +220,65 @@ A function $\map{A}[f]{B}$ is invertible if and only if it is bijective
 
 
 
-\begin{ddef}{1.1.1}
-    A (real) vector space $(V, + , \cdot)$ consists of a set $V$ and two operations that we
-    call \emph{addition} $(+)$ and \emph{scalar multiplication}
-    \[ \map{V \times V}[+]{V} \]
-    \[ \map{\R \times V}[\cdot]{V} \]
-    such that the following axioms hold
-    \begin{enumerate}
-        \item
-            (additive closure)
-            \qquad $\vec x + \vec y ∈ v$,
-            for all $\vec x, \vec y ∈ V$
-        \item
-            (multiplicative closure)
-            \qquad $α \cdot \vec x ∈ V$,
-            for all $\vec x ∈ V$ and scalar $α ∈ V$
-        \item
-            (commutativity)
-            \qquad $\vec x + \vec y = \vec y + \vec x$,
-            for all $\vec x, \vec y ∈ V$
-        \item
-            (additive associativity)
-            \qquad $(\vec x + \vec y) + \vec z =\vec x + (\vec y + \vec z)$,
-            for all $\vec x , \vec y , \vec z ∈ V$
-        \item
-            (additive identity)
-            \qquad There exists a vector $\vec 0 ∈ V$ such that $\vec x + \vec 0 = \vec x$
-            for all $\vec x ∈  V$
-        \item
-            (additive inverse)
-            \qquad For each $\vec x ∈ V$, there exists a vector $- \vec x ∈ V$
-            with the property that $\vec x + (- \vec x) = \vec 0$
-        \item
-            (multiplicative associativity)
-            \qquad $(α \cdot β) \cdot \vec x = α \cdot ( β \cdot \vec x)$,
-            for all $α, β ∈ \R$ and $\vec x ∈ V$
-        \item
-            (distributivity over vector addition)
-            \qquad $α \cdot ( \vec x + \vec y) = α \vec x + α \vec y$,
-            for all $α ∈ \R$ and $\vec x, \vec y ∈ V$
-        \item
-            (distributivity over scalar addition)
-            \qquad $(α + β) \cdot  \vec x = α \vec x + β \vec x$,
-            for all $α, β ∈ \R$ and $\vec x ∈ V$
-        \item
-            (identity property)
-            \qquad $1 \cdot \vec x = \vec x$,
-            for all $\vec x ∈ V$
-    \end{enumerate}
-\end{ddef}
+\lb
+\textbf{Definition 1.1.1}
+\pr
+A (real) vector space $(V, + , \cdot)$ consists of a set $V$ and two operations that we
+call \emph{addition} $(+)$ and \emph{scalar multiplication}
+\[ \map{V \times V}[+]{V} \]
+\[ \map{\R \times V}[\cdot]{V} \]
+such that the following axioms hold
+\begin{enumerate}
+    \item
+        (additive closure)
+        \qquad $\vec x + \vec y ∈ v$,
+        for all $\vec x, \vec y ∈ V$
+    \item
+        (multiplicative closure)
+        \qquad $α \cdot \vec x ∈ V$,
+        for all $\vec x ∈ V$ and scalar $α ∈ V$
+    \item
+        (commutativity)
+        \qquad $\vec x + \vec y = \vec y + \vec x$,
+        for all $\vec x, \vec y ∈ V$
+    \item
+        (additive associativity)
+        \qquad $(\vec x + \vec y) + \vec z =\vec x + (\vec y + \vec z)$,
+        for all $\vec x , \vec y , \vec z ∈ V$
+    \item
+        (additive identity)
+        \qquad There exists a vector $\vec 0 ∈ V$ such that $\vec x + \vec 0 = \vec x$
+        for all $\vec x ∈  V$
+    \item
+        (additive inverse)
+        \qquad For each $\vec x ∈ V$, there exists a vector $- \vec x ∈ V$
+        with the property that $\vec x + (- \vec x) = \vec 0$
+    \item
+        (multiplicative associativity)
+        \qquad $(α \cdot β) \cdot \vec x = α \cdot ( β \cdot \vec x)$,
+        for all $α, β ∈ \R$ and $\vec x ∈ V$
+    \item
+        (distributivity over vector addition)
+        \qquad $α \cdot ( \vec x + \vec y) = α \vec x + α \vec y$,
+        for all $α ∈ \R$ and $\vec x, \vec y ∈ V$
+    \item
+        (distributivity over scalar addition)
+        \qquad $(α + β) \cdot  \vec x = α \vec x + β \vec x$,
+        for all $α, β ∈ \R$ and $\vec x ∈ V$
+    \item
+        (identity property)
+        \qquad $1 \cdot \vec x = \vec x$,
+        for all $\vec x ∈ V$
+\end{enumerate}
 
 
 \lb
-% \begin{rmk}{}~\newline
 \textbf{Remark}
 \begin{itemize}
+    \item
+        Think of a vector space as set, only that you are able to do more with its elements
+        (you can add two of them together and multiply them by a number).
+        Plus, there are 10 `rules' you know your vector space obeys to.
     \item
         For elements in a vector space $V$, we write $\vec x, \vec y, \ldots∈ V$.
         The textbook writes ${\bf x, y, } \ldots ∈ V$.
@@ -209,7 +291,6 @@ A function $\map{A}[f]{B}$ is invertible if and only if it is bijective
         We say that a vector space is \emph{real} if the scalars are real numbers. For now every vector space is real, we will only later allow the scalars to be \emph{complex numbers}
         and such.
 \end{itemize}
-% \end{rmk}
 
 
 
@@ -229,10 +310,13 @@ A function $\map{A}[f]{B}$ is invertible if and only if it is bijective
             and scalar multiplication.
         \item
             The set
-            \[ \pol{n}{\R} = \lbrace  a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \vert a_0, \ldots, a_n ∈ \R \rbrace \] is
+            \[ \pol{n}{\R} = \cb{a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \vert a_0, \ldots, a_n ∈ \R } \] is
             a vector space. \\
             Addition of two polynomials is applied to coefficientwise and the identity element $\vec 0$ is the
             polynomial that is constantly zero $p(x) = 0$.
+            \pr
+            Because every term in a polynomial looks like $a_i x^i$ for some value of $i$ between $0$ and $n$, we can abbreviate
+            \[ \Sum[i=0][n] a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \]
         \item
             The set
             \[ \cal F (\R, \R) \]
@@ -370,8 +454,143 @@ Let $(V, \diamond , \star )$ be a vector space with the following ingredients:
 \lb
 \textbf{Definition}
 \pr
-A \emph{subspace} $U$ of a vector space $(V, +, \cdot)$ is a subset $U \subseteq V$
-that is a vector space in its own right (with the same addition and scalar multiplication of $V$)
+A \emph{subspace} $U$ of a vector space $(V, +, \cdot)$ is a subset $U \subseteq V$ that
+is a vector space in its own right (with the same addition and scalar multiplication of $V$).
+
+\lb
+This is the same idea as for subsets, only that the sets have been `upgraded' to vector spaces.
+
+\lb
+\textbf{Exmaples}
+\begin{enumerate}
+    \item
+        As a first example, consider the vector spaces of polynomials $\pol{n}{\R}$ and of
+        functions $ \mathcal{F}(\R, \R)$ we have already encountered. Now, every polynomial
+        with real coefficients is automatically a function $\map{\R}[]{\R}$.
+
+        \lb
+        \q{Is this enough to be a subspace?}
+
+        \lb
+        We also need to check that the operations of addition and scalar multiplication of
+        polynomials are the same when we consider polynomials to be functions.
+    \item
+        Sine we can view a vector in $\R^2$, that is a tuple with 2 entries $\ttpl{v_1}{v_2}$,
+        in particular as a vector in $\R^3$, namely a tuple with 3 entries,
+        by adding the value $0$ at the last entry,
+        \[ \begin{pmatrix} v_1 \\ v_2 \\ 0 \end{pmatrix} \]
+        it is clear that $\R^2 \subseteq \R^3$ as sets.
+
+        \lb
+        As before, we need to check addition and scalar multiplication.
+\end{enumerate}
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $V$ be a real vector space.
+\begin{enumerate}
+    \item
+        Can $U \subseteq V$ be a subspace if $U$ is empty (i.e. has no elements)?
+    \item
+        Suppose $U$ is a subset of $V$, which vector space axioms does $U$
+        automatically inherit from $V$?
+    \item
+        Following the previous question, which axioms are left to check for $U$
+        to be a vector space?
+\end{enumerate}
+
+
+
+\newpage
+\lb
+As we observed, we don't need to start from scratch to check all 10 axioms for subspaces.
+
+
+\lb
+\textbf{Theorem 1.2.8}
+\lb
+Let $V$ be a vector space with a subset $U$. Then $U \subseteq$ is a subspace if and only if
+\begin{enumerate}
+    \item $U$ is nonempty
+    \item $α \vec u + \vec v ∈ U$ for all $\vec u, \vec v ∈ U$ and $α ∈ \R$.
+\end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+\newpage
+\lb
+We are now equipped with a very powerful tool to quickly test if a subset is a subspace.
+\lb
+\lb
+\textbf{Examples / Discussion}
+\lb
+Decide which of the following subsets in vector spaces are subspaces.
+\begin{enumerate}
+    \item
+        Continuous functions $C^1(\R, \R)$ contained in all functions $\mathcal{F}(\R,\R)$
+
+    \lb
+    \item
+        Invertible $n \times n$ matrices $\cb{A ∈ \mat{n}{\R} \vert A \tx{ is invertible}}$
+        contained in all matrices $\mat{n}{\R}$
+
+
+    \lb
+    \item
+        The set $ \Big \{ \ttpl{x}{y} ∈ \R^2 ~ \vert ~ x + y = 1 \Big \} $ in $\R^2$
+
+    \lb
+    \item
+        Nonnegative real numbers $\R_{\geq 0} = \cb{r ∈ \R ~ \vert ~ r \geq 0}$ in $\R$
+
+    \lb
+    \item
+        The plane of vectors
+        $ \Bigg \{ \tttpl{x}{y}{z} ∈ \R^3 ~ \Bigg \vert ~ y =0 \Bigg \}$ in $\R^3$
+
+    \lb
+    \item
+        Only the zero element $ \cb{\vec 0}$ in $\R^2$
+
+    \lb
+    \item
+        The space of \emph{even} and \emph{odd} functions respectively
+        \[ \mathcal{F}(\R, \R)^{\tx{even}} = \cb{f ∈ \mathcal{F}(\R, \R) \s f(x) = f(-x)} \]
+        \[ \mathcal{F}(\R, \R)^{\tx{odd}} = \cb{f ∈ \mathcal{F}(\R, \R) \s -f(x) = f(-x)} \]
+        in all functions $\mathcal{F}(\R,\R)$
+\end{enumerate}
+
+\lb
+\lb
+\textbf{Hint :} Remember that the easiest way to disprove a \emph{general} statement is to give
+a counterexample.
+
+
+
+\newpage
+\pr
+\textbf{Theorem}
+\lb
+Let $U, W \subseteq V$ be subspaces in a vector space $V$, then
+\begin{enumerate}
+    \item $U \cap W$ is a subspace in $V$ \quad (Theorem 1.2.13)
+    \item $U + W$ is a subspace in $V$
+\end{enumerate}
+\begin{proof}
+    
+\end{proof}
+
+
+
 
 
 
