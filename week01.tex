@@ -29,7 +29,9 @@ I am a graduate student in the maths department and with my advisor I work on di
 geometry and the moduli space of Kähler metrics.
 Apart from math (surprisingly similar though), I enjoy rock climbing.
 \lb
-You can reach me with questions about the course via \textbf{email}.
+You can reach me with questions about the course via \textbf{email: }
+\emph{lennart at math dot toronto dot edu}
+\pr
 For math questions this course uses \emph{Piazza}.
 \lb
 My \textbf{office hours} take place on Wednesdays at 2 pm (EST) on Zoom.
@@ -73,16 +75,16 @@ My \textbf{office hours} take place on Wednesdays at 2 pm (EST) on Zoom.
         I will try to give Definitions, Theorems, etc. the same numbers as in the textbook.
     \item
         These notes will be available on Quercus.
-        Alternatively, you can access them on 
-        \pr
-        \href{https://www.github.com/researchnix/mat224}
-        {\ble{\texttt{github.com/researchnix/mat224}}}.
-        \pr
-        (The notes might be under construction up until the start of the lecture, but I
-        encourage you to have a copy of them ready for the lecture to fill in
-        the blanks and scribble down ideas for the discussions.)
+        % Alternatively, you can access them on 
+        % \pr
+        % \href{https://www.github.com/researchnix/mat224}
+        % {\ble{\texttt{github.com/researchnix/mat224}}}.
+        % \pr
+        % (The notes might be under construction up until the start of the lecture, but
+        I encourage you to have a copy of them ready for the lecture to fill in
+        the blanks and scribble down ideas for the discussions.
     \item
-        Please let me know if there are mistakes in the notes, there will be plenty.
+        Please let me know when you find mistakes in the notes, there will be plenty.
 \end{itemize}
 
 \lb
@@ -98,6 +100,8 @@ My \textbf{office hours} take place on Wednesdays at 2 pm (EST) on Zoom.
     \item Please only use the chat function for lecture relevant messages and please don't spoil
         answers to give everyone time to think about the questions.
 \end{itemize}
+\lb
+\textbf{Thank you } to Professor Sean Uppal and Jeffrey Im for providing me with their old slides from a previous iteration of this course as a reference!
 
 
 \newpage
@@ -116,8 +120,8 @@ Let us start by going over mathematical basics that we will need for this course
         also an element in $B$. We say in this case that $A$ is a \emph{subset} of $B$.
 
         \pr
-        A subset may be declard by pruning a set by a specified condition. For example the
-        set of even integers or the set of odd integers.
+        A subset may be declared by pruning a set with a specified condition. For example, the
+        set of even integers and the set of odd integers are
         \[ \bb E = \cb{ n ∈ \Z ~\vert~ n \tx{ is even }} \subseteq \Z\]
         \[ \bb O = \cb{ n ∈ \Z ~\vert~ n \tx{ is odd}} \subseteq \Z\]
 
@@ -128,7 +132,7 @@ Let us start by going over mathematical basics that we will need for this course
     \newpage
     \item
         A function $\map{A}[f]{B}$ between sets is an assignment that chooses for every $a ∈ A$
-        an element $f(a) = b ∈ B$. For example
+        an element $f(a) = b ∈ B$. For example,
         \begin{align*}
             &\map{\Z}[g]{\Z} \\
             &x \mapsto 2x + 1
@@ -136,12 +140,15 @@ Let us start by going over mathematical basics that we will need for this course
         sends every real number $x$ to twice its value plus one. That is, $g(1) = 3$,
         $g(2) = 5$, and so on $\ldots$.
 
-        \pr
-        domain,
-        codomain,
-        image of $x$ under $f$
-
-        \pr
+        \lb
+        The notation $\map{A}[f]{B}$ moreover describes that we are allowed to apply f to
+        elements $a ∈ A$, we therefore call $A$ the \emph{domain} of $f$.
+        \lb
+        The set $B$ is called the \emph{codomain} or \emph{target} of $f$, this is where $f$
+        takes values in.
+        \lb
+        for $a ∈ A$ we call $f(a)$ the \emph{image of $x$ under $f$}.
+        \lb
         The set of all possible functions between two sets $A$ and $B$ is
         denoted by $\mathcal{F}(A,B)$.
 
@@ -165,8 +172,6 @@ Let us start by going over mathematical basics that we will need for this course
             \item[] \emph{bijective}\\
                 The function is both injective and surjective.
         \lb
-        \textbf{Discussion}
-        \pr
         \q{Which of these properties apply to $g(x) = 2x + 1$ defined above as a function
         from $\Z$ to $\Z$?} \q{If not, how can you change the definition to make it bijective?}
         \end{itemize}
@@ -199,7 +204,7 @@ We will wrap up this introduction with the following theorem
 
 \lb
 \textbf{Theorem}
-\pr
+\lb
 A function $\map{A}[f]{B}$ is invertible if and only if it is bijective
 % \begin{proof}
 % \end{proof}
@@ -224,19 +229,19 @@ A function $\map{A}[f]{B}$ is invertible if and only if it is bijective
 \textbf{Definition 1.1.1}
 \pr
 A (real) vector space $(V, + , \cdot)$ consists of a set $V$ and two operations that we
-call \emph{addition} $(+)$ and \emph{scalar multiplication}
+call \emph{addition} $(+)$ and \emph{scalar multiplication} $\cdot$
 \[ \map{V \times V}[+]{V} \]
 \[ \map{\R \times V}[\cdot]{V} \]
 such that the following axioms hold
 \begin{enumerate}
     \item
         (additive closure)
-        \qquad $\vec x + \vec y ∈ v$,
+        \qquad $\vec x + \vec y ∈ V$,
         for all $\vec x, \vec y ∈ V$
     \item
         (multiplicative closure)
         \qquad $α \cdot \vec x ∈ V$,
-        for all $\vec x ∈ V$ and scalar $α ∈ V$
+        for all $\vec x ∈ V$ and scalars $α ∈ \R$
     \item
         (commutativity)
         \qquad $\vec x + \vec y = \vec y + \vec x$,
@@ -268,7 +273,7 @@ such that the following axioms hold
     \item
         (identity property)
         \qquad $1 \cdot \vec x = \vec x$,
-        for all $\vec x ∈ V$
+        for all $\vec x ∈ V$, $1 ∈ \R$
 \end{enumerate}
 
 
@@ -300,16 +305,17 @@ such that the following axioms hold
     \begin{enumerate}
         \item The real numbers $\R$ form a vector space with 'usual' addition $+$
             and multiplication $\cdot$.
-        \item An n-tuple of real numbers can be written as $(v_1, v_2, \ldots, v_n)$ where
+        \item An n-tuple of real numbers can be written as
+            $\vec v = (v_1, v_2, \ldots, v_n)$ where
             each $v_i ∈ \R$. The set of n-tuples is a vector space denoted by $\R^n$.
             \pr
-            \q{What are the operations $+$ and $\cdot$?}
-            \q{What is the additive identity element $\vec 0$?}
+            The operations addition and componentwise are performed componentwise.
+            The additive identity is the zero tuple $\vec 0 = (0, \ldots, 0)$.
         \item
             The set $\mat{n, m}{\R}$ of $n \times m$ matrices with componentwise addition
             and scalar multiplication.
         \item
-            The set
+            The set of polynomials of degree at most $n$
             \[ \pol{n}{\R} = \cb{a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n \vert a_0, \ldots, a_n ∈ \R } \] is
             a vector space. \\
             Addition of two polynomials is applied to coefficientwise and the identity element $\vec 0$ is the
@@ -320,12 +326,14 @@ such that the following axioms hold
         \item
             The set
             \[ \cal F (\R, \R) \]
-            of functions from the real numbers to the real numbers is a vector space
+            of functions from the real numbers to the real numbers is a vector space.
+            \pr
+            What might be the operations $+$ and $\cdot$ ?
     \end{enumerate}
 \vspace{20pt}
 \textbf{Intuition}
 \lb
-In many cases vectors may be represented with vectors becasue they too have a
+In many cases vectors may be represented with arrows becasue they, too, have a
 direction and a magnitude. But be careful, every analogy has its limitations.
 
 
@@ -378,12 +386,15 @@ the
 \[ \vec u = \vec v \]
 
 \begin{proof}
-    \q{To practice, write down which property of vector spaces we are using in the following!}
     \begin{align*}
         \vec u
-        &= \vec u + 0 \\
+        &= \vec u + \vec 0 \\
         &= \vec u + (\vec w - \vec w) \\
-        &\vdots
+        &= (\vec u + \vec w) - \vec w \\
+        &= (\vec v + \vec w) - \vec w \\
+        &= \vec v + (\vec w - \vec w) \\
+        &= \vec v + \vec 0 \\
+        &= \vec v
     \end{align*}
 \end{proof}
 
@@ -416,6 +427,17 @@ Let $V$ be a vector space and $\vec v \in V$, then
 Let $V$ be a vector space and $\vec v \in V$, then
 \[ -1 \cdot \vec v = - \vec v \]
 \begin{proof}
+    \begin{align*}
+        - \vec v
+        &= - \vec v + \vec 0 \\
+        &= - \vec v + 0 \vec v \\
+        &= - \vec v + (1 + (-1)) \vec v \\
+        &= - \vec v + (1 + (-1)) \vec v \\
+        &= - \vec v + 1 \vec v + (-1) \cdot \vec v \\
+        &= - \vec v + \vec v + (-1) \cdot  \vec v \\
+        &= \vec 0 + (-1) \cdot  \vec v \\
+        &= -1 \cdot \vec v
+    \end{align*}
 \end{proof}
 
 
@@ -426,18 +448,20 @@ Let $V$ be a vector space and $\vec v \in V$, then
 \lb
 Notice that the symbol $+$ does \emph{not} necessarily refer to the standard addition, it
 could be defined in a different way as we can observe in the following.
-\textbf{Discussion}
-Let $(V, \diamond , \star )$ be a vector space with the following ingredients:
-\begin{enumerate}
-    \item The set $V$ of 2-tuples of real numbers $\ttpl{u_1}{u_2}$.
-    \item Addition of 2-tuples
-        \[ \ttpl{u_1}{u_2} \diamond \ttpl{v_1}{v_2}  = \ttpl{u_1 + v_1 + 1}{u_2 + v_2 + 1} \]
-    \item Scalar multiplication
-        \[ α \star \ttpl{u_1}{u_2} = \ttpl{α u_1 + α - 1 }{β u_2 + β - 1} \]
-\end{enumerate}
 \lb
-\q{Is this a vector vector space? What would the identity element $\vec 0$ be?}
-\q{What is the inverse of an element $\ttpl{u_1}{u_2}$?}
+\textbf{Discussion}
+\lb
+    Let $V$ be the set of 2-tuples of real numbers $\ttpl{u_1}{u_2}$.
+    \lb
+    Define addition of 2-tuples as 
+    \[ \ttpl{u_1}{u_2} \diamond \ttpl{v_1}{v_2}  = \ttpl{u_1 + v_1 + 1}{u_2 + v_2 + 1} \]
+    \lb
+    Let scalar multiplication be given by
+    \[ α \star \ttpl{u_1}{u_2} = \ttpl{α u_1 + α - 1 }{β u_2 + β - 1} \]
+\lb
+Is there an additive identity? Are there inverses?
+Is $(V, \diamond , \star )$ a vector space?
+\lb
 \textbf{Hint} Look at the propositions from the previous page.
 
 
@@ -474,9 +498,10 @@ This is the same idea as for subsets, only that the sets have been `upgraded' to
         \lb
         We also need to check that the operations of addition and scalar multiplication of
         polynomials are the same when we consider polynomials to be functions.
+    \vspace{200pt}
     \item
         Sine we can view a vector in $\R^2$, that is a tuple with 2 entries $\ttpl{v_1}{v_2}$,
-        in particular as a vector in $\R^3$, namely a tuple with 3 entries,
+        also as a vector in $\R^3$, namely a tuple with 3 entries,
         by adding the value $0$ at the last entry,
         \[ \begin{pmatrix} v_1 \\ v_2 \\ 0 \end{pmatrix} \]
         it is clear that $\R^2 \subseteq \R^3$ as sets.
@@ -514,7 +539,7 @@ As we observed, we don't need to start from scratch to check all 10 axioms for s
 \lb
 \textbf{Theorem 1.2.8}
 \lb
-Let $V$ be a vector space with a subset $U$. Then $U \subseteq$ is a subspace if and only if
+Let $V$ be a vector space with a subset $U$. Then $U \subseteq V$ is a subspace if and only if
 \begin{enumerate}
     \item $U$ is nonempty
     \item $α \vec u + \vec v ∈ U$ for all $\vec u, \vec v ∈ U$ and $α ∈ \R$.
