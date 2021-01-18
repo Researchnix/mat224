@@ -1,0 +1,176 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Linear Combinations \& Independence}
+\rhead{Week 02}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Linear combinations}%
+\label{sec:Linear combinations}
+
+\textbf{Textbook:} Section 1.3
+
+
+\lb
+\textbf{Definition 1.3.1}
+\lb
+\begin{enumerate}
+\item
+Let $V$ be a vector space and $ \cb{\vec v_1, \ldots, \vec v_k}$ be a collection of vectors
+in $V$. A \emph{linear combination} of vectors $\vec v_1, \ldots, \vec v_k$ in $S$
+with \emph{coefficients} $α_1, \ldots, α_k ∈ \R$ is a sum
+\[ α_1 \vec v_1 + α_2 \vec v_2 +  \cdots + α_k \vec v_k \]
+\item
+A linear combination where all coefficients are zero is called \emph{trivial}.
+\item
+To abbreviate a linear combination as above, we may write
+\[ \Sum[i=1][k] α_i \vec v_i\]
+\end{enumerate}
+
+\lb
+Notice that this is the most arbitrary vector we can build with the vectors
+$\vec v_1, \ldots \vec v_k$ available in $S$.
+
+
+\lb
+\textbf{Example}
+\lb
+\begin{enumerate}
+    \item
+        Polynomials in $\pol{3}{\R}$ are linear combinations of the \emph{monomials}
+        $\cb{1, x, x^2}$.
+    \vspace{200pt}
+    \item
+        Let $\vec e_1 = \tttpl{1}{0}{0} \vec e_2 = \tttpl{0}{1}{0}, \vec e_3 = \tttpl{0}{0}{1}$
+        be the standard vectors in $\R^3$. Observe that every posible vector in
+        $\R^3$ of the form $\tttpl{x}{y}{z}$ is a linear combination of these
+        standard vectors.
+\end{enumerate}
+
+
+
+
+\newpage
+% \lb
+% \textbf{Lemma}
+% \lb
+% Let $V$ be a vector space with a subspace $U \subseteq V$ and
+% $S = \cb{ \vec v_1, \ldots, \vec v_k}$ a collection of vectors.
+% \lb
+% If $\vec v_i ∈ U$ for all $i = 1, \ldots, k$, then all linear combinations are in $U$ as well.
+
+
+
+\lb
+\textbf{Definition 1.3.1} (continued)
+\lb
+Let $V$ be a vector space and $S = \cb{\vec v_1, \ldots, \vec v_k}$ be a collection of vectors
+in $V$. The set of all linear combinations of vectors in $S$ is called the \emph{span of S}
+and denoted
+\[ \spn{S} = \spn{\vec v_1, \ldots, \vec v_k} \]
+
+\pr
+By convention, $\spn{\emptyset} = \cb{\vec 0}$.
+
+
+\lb
+\textbf{Example}
+\lb
+\begin{enumerate}
+    \item \[ \pol{2}{\R} = \spn{1, x, x^2} \]
+    \item \[ \mat{2}{\R} = \spn{\qquad ? \qquad } \]
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $R = \cb{\vec v_1, \ldots, \vec v_k}$ and
+$S = \cb{\vec v_1, \ldots, \vec v_k, \vec v_{k+1}, \ldots, \vec v_{k+m}}$ be two collections
+of vectors in a vector space $V$ such that $R$ is contained in $S$.
+Show that $\spn{R}$ is contained in $\spn{S}$.
+
+
+\vspace{300pt}
+
+
+\lb
+\textbf{Theorem 1.3.4}
+\lb
+Show that for any vector space $V$ and collection of vectors
+$S = \cb{\vec v_1, \ldots, \vec v_k}$ in $V$
+\[ \spn{S} \subseteq V\] is a subspace of $V$.
+\begin{proof}
+    
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Does the set of polynomials $ \cb{1-2x^2~,~ x^2 + x ~,~ x^3 - 3x^2 ~,~ 1}$ span $\pol{3}{\R}$?
+
+
+
+
+
+\newpage
+\section*{Linear Independence}%
+\label{sec:Linear Independence}
+
+\textbf{Textbook:} Section 1.4
+
+\lb
+\textbf{Prelude}
+\lb
+We have seen that a vector space can have different spanning sets, for example:
+\begin{align*}
+    \R^2 &= \tx{span} \Bigg \{ \ttpl{1}{0}, \ttpl{0}{1} \Bigg \} \\
+    \R^2 &= \tx{span} \Bigg \{ \ttpl{1}{1}, \ttpl{-1}{1}, \ttpl{2}{0} \Bigg \}
+\end{align*}
+\lb
+\lb
+\lb
+\lb
+\lb
+\lb
+\q{How do these two spans differ?}
+
+
+
+\lb
+\textbf{Definition 1.4.2}
+\lb
+
+
+
+
+\end{document}
