@@ -156,20 +156,130 @@ We have seen that a vector space can have different spanning sets, for example:
     \R^2 &= \tx{span} \Bigg \{ \ttpl{1}{0}, \ttpl{0}{1} \Bigg \} \\
     \R^2 &= \tx{span} \Bigg \{ \ttpl{1}{1}, \ttpl{-1}{1}, \ttpl{2}{0} \Bigg \}
 \end{align*}
-\lb
-\lb
-\lb
-\lb
-\lb
-\lb
 \q{How do these two spans differ?}
-
-
-
+\lb
+\lb
+\lb
+\lb
+\lb
+\lb
 \lb
 \textbf{Definition 1.4.2}
 \lb
+Let $S = \cb{\vec v_1, \ldots, \vec v_k} $ be a collection of vectors in a vector space $V$.
+\begin{enumerate}
+    \item 
+        The collection of vectors is called \emph{linearly independent} if only the
+        trivial linear combination of the vectors in $S$ is equal to zero.
+        \pr
+        That is,
+        \[ α_1 \vec v_1 + \cdots + α_k \vec v_k = \vec 0 \]
+        only for the coefficients $α_1 = α_2 = \cdots = α_k = 0$.
+    \item
+        In he opposite case, when there does exist a nontrivial combination of the vectors in $S$
+        which is zero, we call the collection \emph{linearly dependent}.
+\end{enumerate}
 
+
+\lb
+\textbf{Intuition}
+\lb
+When does a linear combinatin of vectors equal to zero? It means that the concatenation of
+`arrows` representing the vectors results in a loop.
+\lb
+Moreover, such a loop is trivial if it is just a point, i.e. no interior area.
+
+
+
+\newpage
+
+\lb
+\textbf{Example}
+\lb
+\begin{enumerate}
+    \item The collection of polynomials $ \cb{1+x ~,~ 1-x ~,~ 1+2x}$ in $\pol{1}{\R}$ is linearly
+        dependent
+    \item The collection of monomials $ \cb{1 ~,~ x ~,~ x^2}$ in $\pol{2}{\R}$ is linearly
+        independet
+\end{enumerate}
+
+
+\lb
+\textbf{Discussion}
+\lb
+Decide if the following collections of vectors is linearly independent or dependent.
+\begin{enumerate}
+    \item todo
+    \item todo
+    \item todo
+\end{enumerate}
+
+
+
+\lb
+\lb
+\lb
+\textbf{Lemma}
+\lb
+If $ \cb{\vec v_1, \ldots, \vec v_k}$ is a linearly dependent collection of vectors
+in a vector space $V$, there exists an index $j ∈ \cb{1, \ldots, k}$ such that
+\begin{enumerate}
+    \item
+        $\vec v_j ∈ \spn{\vec v_1, \ldots, \vec v_{j-1}}$
+    \item
+        $\spn{\vec v_1, \ldots, \widehat{\vec v_j}, \ldots, \vec v_k}
+        = \spn{\vec v_1, \ldots, \vec v_k}$
+\end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+
+\newpage
+\lb
+\textbf{Example}
+\lb
+More examples?!
+
+
+\lb
+\textbf{Theorem}
+\lb
+Let $ S = \cb{\vec v_1, \ldots, \vec v_k}$ be a collection of vectors in a vector space $V$.
+\pr
+Then $S$ is linearly independent if and only if every vector in $\spn{S}$ has a
+unique representation as a linear combination.
+
+\lb
+That is, if and only if $S$ is linearly independent, we have that
+\[ α_1 \vec v_1 + \cdots + α_k \vec v_k = β_1 \vec v_1 + \cdots + β_k \vec v_k \]
+is equivalent with $α_i = β_i$ for all $i ∈ \cb{1, \ldots, k}$.
+\begin{proof}
+\end{proof}
+
+
+
+
+\vspace{230pt}
+\lb
+\textbf{Theorem} (Extend \& Reduce)
+\lb
+Given ...
+
+
+
+
+\newpage
+\lb
+\textbf{True or False?} (Theorems from above might be helpful)
+\lb
+\begin{enumerate}
+    \item[$\square$]
+        If $S$ is an independent collection of vectors and $R \subseteq S$, then
+        $R$ is also independent.
+    \item[$\square$]
+
+\end{enumerate}
 
 
 
