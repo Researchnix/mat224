@@ -33,7 +33,7 @@
 \lb
 \begin{enumerate}
 \item
-Let $V$ be a vector space and $ \cb{\vec v_1, \ldots, \vec v_k}$ be a collection of vectors
+Let $V$ be a vector space and $ \cb{\vec v_1, \ldots, \vec v_k}$ be a family of vectors
 in $V$. A \emph{linear combination} of vectors $\vec v_1, \ldots, \vec v_k$ in $S$
 with \emph{coefficients} $α_1, \ldots, α_k ∈ \R$ is a sum
 \[ α_1 \vec v_1 + α_2 \vec v_2 +  \cdots + α_k \vec v_k \]
@@ -55,10 +55,10 @@ $\vec v_1, \ldots \vec v_k$ available in $S$.
 \begin{enumerate}
     \item
         Polynomials in $\pol{3}{\R}$ are linear combinations of the \emph{monomials}
-        $\cb{1, x, x^2}$.
+        $\cb{1, x, x^2, x^3}$.
     \vspace{200pt}
     \item
-        Let $\vec e_1 = \tttpl{1}{0}{0} \vec e_2 = \tttpl{0}{1}{0}, \vec e_3 = \tttpl{0}{0}{1}$
+        Let $\Bigg \{\vec e_1 = \tttpl{1}{0}{0} \vec e_2 = \tttpl{0}{1}{0}, \vec e_3 = \tttpl{0}{0}{1} \Bigg \}$
         be the standard vectors in $\R^3$. Observe that every posible vector in
         $\R^3$ of the form $\tttpl{x}{y}{z}$ is a linear combination of these
         standard vectors.
@@ -72,7 +72,7 @@ $\vec v_1, \ldots \vec v_k$ available in $S$.
 % \textbf{Lemma}
 % \lb
 % Let $V$ be a vector space with a subspace $U \subseteq V$ and
-% $S = \cb{ \vec v_1, \ldots, \vec v_k}$ a collection of vectors.
+% $S = \cb{ \vec v_1, \ldots, \vec v_k}$ a family of vectors.
 % \lb
 % If $\vec v_i ∈ U$ for all $i = 1, \ldots, k$, then all linear combinations are in $U$ as well.
 
@@ -81,7 +81,7 @@ $\vec v_1, \ldots \vec v_k$ available in $S$.
 \lb
 \textbf{Definition 1.3.1} (continued)
 \lb
-Let $V$ be a vector space and $S = \cb{\vec v_1, \ldots, \vec v_k}$ be a collection of vectors
+Let $V$ be a vector space and $S = \cb{\vec v_1, \ldots, \vec v_k}$ be a family of vectors
 in $V$. The set of all linear combinations of vectors in $S$ is called the \emph{span of S}
 and denoted
 \[ \spn{S} = \spn{\vec v_1, \ldots, \vec v_k} \]
@@ -94,7 +94,7 @@ By convention, $\spn{\emptyset} = \cb{\vec 0}$.
 \textbf{Example}
 \lb
 \begin{enumerate}
-    \item \[ \pol{2}{\R} = \spn{1, x, x^2} \]
+    \item \[ \pol{3}{\R} = \spn{1, x, x^2, x^3} \]
     \item \[ \mat{2}{\R} = \spn{\qquad ? \qquad } \]
 \end{enumerate}
 
@@ -103,10 +103,16 @@ By convention, $\spn{\emptyset} = \cb{\vec 0}$.
 \lb
 \textbf{Discussion}
 \lb
-Let $R = \cb{\vec v_1, \ldots, \vec v_k}$ and
-$S = \cb{\vec v_1, \ldots, \vec v_k, \vec v_{k+1}, \ldots, \vec v_{k+m}}$ be two collections
-of vectors in a vector space $V$ such that $R$ is contained in $S$.
-Show that $\spn{R}$ is contained in $\spn{S}$.
+Let $R$ and $S$ be two families of vectors in a vector space $V$.
+\begin{enumerate}
+    \item
+        If $R$ is contained in $S$, show that $\spn{R}$ is contained in $\spn{S}$.
+    \item
+        Show that we have the following equality of sets.
+        \[ \spn{ R \cup S} = \spn R + \spn S \]
+    \item
+        Is it true that $R \subseteq \spn R$?
+\end{enumerate}
 
 
 \vspace{300pt}
@@ -115,7 +121,7 @@ Show that $\spn{R}$ is contained in $\spn{S}$.
 \lb
 \textbf{Theorem 1.3.4}
 \lb
-Show that for any vector space $V$ and collection of vectors
+For any vector space $V$ and family of vectors
 $S = \cb{\vec v_1, \ldots, \vec v_k}$ in $V$
 \[ \spn{S} \subseteq V\] is a subspace of $V$.
 \begin{proof}
@@ -134,9 +140,26 @@ $S = \cb{\vec v_1, \ldots, \vec v_k}$ in $V$
 
 \newpage
 \lb
+\textbf{Corollary}
+\lb
+The spans of two families of vectors
+$R = \cb{\vec v_1, \ldots, \vec v_k}$ and 
+$S = \cb{\vec w_1, \ldots, \vec w_l}$ are equal
+\[ \spn R = \spn S \]
+if $R$ is contained in $\spn S$ and $S$ is contained in $\spn R$.
+
+
+
+\vspace{200pt}
+\lb
 \textbf{Discussion}
 \lb
-Does the set of polynomials $ \cb{1-2x^2~,~ x^2 + x ~,~ x^3 - 3x^2 ~,~ 1}$ span $\pol{3}{\R}$?
+Consider in $\pol{3}{\R}$ the family of polynomials
+\[ S = \cb{1 ~,~ x-2x^2 ~,~ 2x^2+3x^3 ~,~ 1+4x^2 ~,~ 5x^3} \]
+\begin{enumerate}
+    \item Show that $ \cb{1, x, x^2, x^3} \subseteq \spn S \subseteq \pol{3}{\R}$
+    \item Use the Corollary above to conclude that $\spn S = \pol{3}{\R}$
+\end{enumerate}
 
 
 
@@ -166,10 +189,10 @@ We have seen that a vector space can have different spanning sets, for example:
 \lb
 \textbf{Definition 1.4.2}
 \lb
-Let $S = \cb{\vec v_1, \ldots, \vec v_k} $ be a collection of vectors in a vector space $V$.
+Let $S = \cb{\vec v_1, \ldots, \vec v_k} $ be a family of vectors in a vector space $V$.
 \begin{enumerate}
     \item 
-        The collection of vectors is called \emph{linearly independent} if only the
+        The family of vectors is called \emph{linearly independent} if only the
         trivial linear combination of the vectors in $S$ is equal to zero.
         \pr
         That is,
@@ -177,7 +200,7 @@ Let $S = \cb{\vec v_1, \ldots, \vec v_k} $ be a collection of vectors in a vecto
         only for the coefficients $α_1 = α_2 = \cdots = α_k = 0$.
     \item
         In he opposite case, when there does exist a nontrivial combination of the vectors in $S$
-        which is zero, we call the collection \emph{linearly dependent}.
+        which is zero, we call the family \emph{linearly dependent}.
 \end{enumerate}
 
 
@@ -197,9 +220,9 @@ Moreover, such a loop is trivial if it is just a point, i.e. no interior area.
 \textbf{Example}
 \lb
 \begin{enumerate}
-    \item The collection of polynomials $ \cb{1+x ~,~ 1-x ~,~ 1+2x}$ in $\pol{1}{\R}$ is linearly
+    \item The family of polynomials $ \cb{1+x ~,~ 1-x ~,~ 1+2x}$ in $\pol{1}{\R}$ is linearly
         dependent
-    \item The collection of monomials $ \cb{1 ~,~ x ~,~ x^2}$ in $\pol{2}{\R}$ is linearly
+    \item The family of monomials $ \cb{1 ~,~ x ~,~ x^2}$ in $\pol{2}{\R}$ is linearly
         independet
 \end{enumerate}
 
@@ -207,21 +230,16 @@ Moreover, such a loop is trivial if it is just a point, i.e. no interior area.
 \lb
 \textbf{Discussion}
 \lb
-Decide if the following collections of vectors is linearly independent or dependent.
-\begin{enumerate}
-    \item todo
-    \item todo
-    \item todo
-\end{enumerate}
+Can yo ufind a linearly dependent family of four vectors in $\R^3$
+such that any three of them are linealry independent?
 
 
 
+\vspace{200pt}
 \lb
+\textbf{Theorem} (Reduce)
 \lb
-\lb
-\textbf{Lemma}
-\lb
-If $ \cb{\vec v_1, \ldots, \vec v_k}$ is a linearly dependent collection of vectors
+If $ \cb{\vec v_1, \ldots, \vec v_k}$ is a linearly dependent family of vectors
 in a vector space $V$, there exists an index $j ∈ \cb{1, \ldots, k}$ such that
 \begin{enumerate}
     \item
@@ -239,16 +257,38 @@ in a vector space $V$, there exists an index $j ∈ \cb{1, \ldots, k}$ such that
 \lb
 \textbf{Example}
 \lb
-More examples?!
+Verify that the above lemma applies to the example in the prelude.
+\vspace{100pt}
 
 
+
+\vspace{200pt}
+\lb
+\textbf{Theorem} (Extend)
+\lb
+If $ S = \cb{\vec v_1, \ldots, \vec v_k}$ is a linearly independent family of vectors
+in a vector space $V$ that does not span $V$,
+then
+\begin{enumerate}
+    \item 
+        There exists $\vec v \in V$ such that $\vec v \ni \spn S$.
+    \item
+        The family $ \cb{\vec v_1, \ldots, \vec v_k, \vec v}$ is linearly independent
+\end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+\newpage
 \lb
 \textbf{Theorem}
 \lb
-Let $ S = \cb{\vec v_1, \ldots, \vec v_k}$ be a collection of vectors in a vector space $V$.
-\pr
+Let $ S = \cb{\vec v_1, \ldots, \vec v_k}$ be a family of vectors in a vector space $V$.
 Then $S$ is linearly independent if and only if every vector in $\spn{S}$ has a
-unique representation as a linear combination.
+unique representation as a linear combination of vectors in $S$.
 
 \lb
 That is, if and only if $S$ is linearly independent, we have that
@@ -258,14 +298,10 @@ is equivalent with $α_i = β_i$ for all $i ∈ \cb{1, \ldots, k}$.
 \end{proof}
 
 
-
-
 \vspace{230pt}
 \lb
-\textbf{Theorem} (Extend \& Reduce)
-\lb
-Given ...
-
+\textbf{Intuition}
+Can you explain the above theorem graphically?
 
 
 
@@ -275,10 +311,24 @@ Given ...
 \lb
 \begin{enumerate}
     \item[$\square$]
-        If $S$ is an independent collection of vectors and $R \subseteq S$, then
+        If $S$ is an independent family of vectors and $R \subseteq S$, then
         $R$ is also independent.
     \item[$\square$]
-
+        A family $ \cb{\vec v}$ of a single vector is always independent.
+    \item[$\square$]
+        A family $ \cb{\vec v, \vec w}$ of two vectors is dependent if and only if
+        $\vec v$ and $\vec w$ are a multiple of each other.
+    \item[$\square$]
+        A linearly dependent family $ \cb{\vec v_1, \ldots, \vec v_k}$ only contains
+        (sub-) families which are dependent as well.
+    \item[$\square$]
+        A family $ \cb{\vec v_1, \ldots, \vec v_k}$ containing a linearly dependent
+        family $ \cb{\vec v_1, \ldots, \vec v_k} $ is also dependent.
+    \item[$\square$]
+        Is it possible that two families of vectors $R$ and $S$ are not equal, but
+        $\spn R = \spn S$?
+    \item[$\square$]
+        There is a linearly independent family of fours polynomials in $\pol{2}{\R}$.
 \end{enumerate}
 
 
