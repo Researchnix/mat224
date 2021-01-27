@@ -47,8 +47,8 @@ A family of vectors $\cal B$ in a vector space $V$ is called \emph{a basis of $V
 \begin{enumerate}
     \item $ \cb{\vec e_1, \ldots, \vec e_n} $ is a basis of $\R^n$.
     \item We have seen last week that $ \cb{\ttpl{1}{1}, \ttpl{-1}{1}} $ is a basis of $\R^2$
-    \item Which of families of polynomials of the ones
-        we have seen before is a basis of $\pol{2}{\R}$?
+    \item Which families of polynomials of the ones
+        we have seen before are bases of $\pol{2}{\R}$?
         Can you write down a basis of $\pol{2}{\R}$ that does not contain any monomials?
 \end{enumerate}
 \lb
@@ -79,7 +79,7 @@ $\cal B$.
 
 
 
-
+\vspace{100pt}
 \lb
 \textbf{Theorem}  (Extend \& Reduce pt. II)
 \lb
@@ -98,6 +98,8 @@ This follows from the \emph{Extend} and \emph{Reduce} theorems from last week
 
 
 
+
+\newpage
 \lb
 \textbf{Remark}
 \begin{enumerate}
@@ -106,9 +108,9 @@ This follows from the \emph{Extend} and \emph{Reduce} theorems from last week
         $\pol{}{\R}$ can not be spanned by finitely many polynomials.
         Can you show why?
     \item
-        Observe that a basis hits a sweet spot of a family that is not too
-        large as that it would contain redundant vectors, but also not too
-        small of a family that it couldn't span the vetcor space.
+        Observe that a basis hits a sweet spot as it is not too
+        large to contain redundant vectors, but also not too
+        small to not span the vetcor space.
 \end{enumerate}
 
 
@@ -119,7 +121,7 @@ This follows from the \emph{Extend} and \emph{Reduce} theorems from last week
 \lb
 \textbf{Corollary}
 \lb
-Every finite finitely spanned vector space has a basis.
+Every finitely spanned vector space has a basis.
 
 
 
@@ -144,15 +146,16 @@ an invariant, a label, something that characterizes the vectors space.
 This invariant is motivated by the Corollary following below.
 
 \lb
-\textbf{Theorem 1.6.10} 
+\textbf{Theorem 1.6.10}
 \lb
 If $V$ is spanned by a family $S$ with $m$ elements, then no linearly
 independent family $R$ in $V$ can have more than $m$ elements.
 \begin{proof}
-    
 \end{proof}
 
 
+
+\vspace{400pt}
 \lb
 \textbf{Corollary 1.6.11}
 \lb
@@ -160,8 +163,9 @@ Any two bases $\cal B$ and $\cal B'$ of $V$ have the same number of elements
 
 
 
+\newpage
 \lb
-\textbf{Definitions} 
+\textbf{Definitions}
 \begin{enumerate}
     \item If a vector space $V$ has a finite basis, we say that $V$ is
         \emph{finite dimensional}.
@@ -170,7 +174,6 @@ Any two bases $\cal B$ and $\cal B'$ of $V$ have the same number of elements
         \[ \dim(V) \]
         is the number of elements of a basis of $V$.
 \end{enumerate}
-
 
 
 \lb
@@ -189,6 +192,7 @@ Remember that a matrix $A$ is symmetric if $\tp A = A$ and antisymmetric if $\tp
 
 
 
+\vspace{100pt}
 \lb
 \textbf{Discussion}
 \begin{itemize}
@@ -207,7 +211,7 @@ Remember that a matrix $A$ is symmetric if $\tp A = A$ and antisymmetric if $\tp
 The following result is very useful when we are looking for a basis
 of a vector space that we already know the dimension of.
 \lb
-\textbf{Proposition}
+\textbf{Proposition} (Corollary of last discussion)
 \lb
 Let $V$ be a vector space of dimension $n$ with a family $S$ containing $n$ vectors,
 then the following are equivalent.
@@ -223,6 +227,7 @@ then the following are equivalent.
 \end{proof}
 
 
+\vspace{300pt}
 \lb
 \textbf{Discussion}
 \lb
@@ -248,6 +253,8 @@ Let $U$ and $W$ be subspaces in $V$, can the sum $\dim(U) + \dim(W)$ be greater 
 Argue why it is true or find a counterexample.
 
 
+
+\vspace{200pt}
 \lb
 \textbf{Example} (continued)
 \lb
@@ -257,6 +264,7 @@ matrices $\mat{2}{\R}$.
 Compute the intersection $\smat{2}{\R} \cap \amat{2}{\R}$.
 
 
+\vspace{300pt}
 \lb
 This example can be abstractly formalized as
 \lb
@@ -269,10 +277,6 @@ Let $U$ and $W$ be finite dimensional subspaces of a vector space $V$, then
 \end{proof}
 
 
-\lb
-\textbf{Corollary}
-\lb
-Every finite dimensional vector space has basis.
 
 
 
@@ -286,7 +290,7 @@ Let $S = \cb{\vec v_1, \vec v_2, \vec v_3}$ be a spanning set of $V$.
     \item What are the possible dimensions of $V$?
     \item Suppose $ \cb{v_1, v_3}$ is linearly independent, what are the possible dimensions
         of $V$?
-    \item Can oy ucreate a basis for $V$ from $S$?
+    \item Can you create a basis for $V$ from $S$?
 \end{enumerate}
 
 
