@@ -26,6 +26,9 @@
 \label{sec:title}
 
 \textbf{Textbook:} Section 1.6
+\lb
+\textbf{Warning:} These notes contain probably more content than we can cover in one week.
+Don't panic, I included some extra material for easy access and reference for you.
 
 
 \lb
@@ -44,11 +47,24 @@ A family of vectors $\cal B$ in a vector space $V$ is called \emph{a basis of $V
 \begin{enumerate}
     \item $ \cb{\vec e_1, \ldots, \vec e_n} $ is a basis of $\R^n$.
     \item We have seen last week that $ \cb{\ttpl{1}{1}, \ttpl{-1}{1}} $ is a basis of $\R^2$
-    \item Which of families of polynomials we have seen before is a basis of $\pol{2}{\R}$?
+    \item Which of families of polynomials of the ones
+        we have seen before is a basis of $\pol{2}{\R}$?
         Can you write down a basis of $\pol{2}{\R}$ that does not contain any monomials?
 \end{enumerate}
+\lb
+A vector space does not have just one unique basis as we can easily verify.
 
 
+
+\lb
+\textbf{Discussion}
+\lb
+Given the vector $\ttpl{5}{3} ∈ \R^2$, write down all linear combinations of
+$ \cb{\ttpl{1}{1}, \ttpl{-1}{1}} $ equal to $\ttpl{5}{3} ∈ \R^2$.
+
+
+
+\newpage
 
 \lb
 \textbf{Theorem 1.6.3}
@@ -62,38 +78,63 @@ $\cal B$.
 
 
 
+
+
 \lb
-\textbf{Remark} 
+\textbf{Theorem}  (Extend \& Reduce pt. II)
+\lb
+Let $V$ be a vector space with a finite spanning set.
 \begin{enumerate}
-    \item A vector space does not have just one unique
-        basis as we can easily verify.
+    \item 
+        Every linearly independent family $S$ in $V$ may be enlarged to
+        a basis $\cal B$ containing $S$. (Theorem 1.6.6)
+    \item
+        Every family $S$ that spans $V$ may be reduced to a basis $\cal B$ contained in $S$.
+\end{enumerate}
+
+\begin{proof}
+This follows from the \emph{Extend} and \emph{Reduce} theorems from last week
+\end{proof}
+
+
+
+\lb
+\textbf{Remark}
+\begin{enumerate}
+    \item 
+        Why do we need a finite spanning set for $V$? Some vector spaces, such as
+        $\pol{}{\R}$ can not be spanned by finitely many polynomials.
+        Can you show why?
+    \item
+        Observe that a basis hits a sweet spot of a family that is not too
+        large as that it would contain redundant vectors, but also not too
+        small of a family that it couldn't span the vetcor space.
 \end{enumerate}
 
 
-\lb
-\textbf{Theorem 1.6.6} 
-\lb
-Let $V$ be a vector space with a finite spanning set.
-For every linearly independent family $S$ in $V$, there
-is a basis $\cal B$ containing $S$.
 
-\lb
-Why do we need a finite spanning set for $V$? Some vector spaces, such as
-$\pol{}{\R}$ can not be spanned by finitely many polynomials.
-Can you show why?
+
 
 
 \lb
-Observe that a basis hits a sweet spot of a family that is not too
-large as that it would contain redundant vectors, but also not too
-small of a family that it couldn't span the vetcor space.
-\pr
-The \emph{Extend} and \emph{Reduce} theorems from last week
-give us the following:
+\textbf{Corollary}
 \lb
-A family of vectors that is linearly independent, but not a spanning set can
-be enlagred to a basis, a family that spans $V$, but is linearly
-dependent, can be cut down to form a basis.
+Every finite finitely spanned vector space has a basis.
+
+
+
+
+
+\lb
+\textbf{Discussion}
+\lb
+Consider the vectors $p(x) = 1 + x$ and $q(x) = 1 + x + x^2$ in $\pol{2}{\R}$.
+Find a third vector $r(x)$ such that the family $\cb{p, q, r}$ is a basis for $\pol{2}{\R}$.
+
+
+
+
+
 
 
 \newpage
@@ -164,7 +205,7 @@ Remember that a matrix $A$ is symmetric if $\tp A = A$ and antisymmetric if $\tp
 \newpage
 \lb
 The following result is very useful when we are looking for a basis
-of space that we already know the dimension of.
+of a vector space that we already know the dimension of.
 \lb
 \textbf{Proposition}
 \lb
@@ -178,12 +219,25 @@ then the following are equivalent.
     \item[(c)]
         $S$ spans $V$
 \end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+\lb
+\textbf{Discussion}
+\lb
+is the family of polynomials $ \cb{1 + 2x -x^2, 1 + x + x^2}$ is a basis for the subspace
+$W = \cb{a + bx + cx^2 ∈ \pol{2}{\R} \vert -3a + 2b + c = 0}$?
+
+
+
+
+
 
 
 \newpage
-
 \lb
-Since subspaces are vector spaces too, all constructions above apply, to subspaces.
+Since subspaces are vector spaces too, all constructions above apply also to subspaces.
 
 
 \lb
@@ -191,7 +245,7 @@ Since subspaces are vector spaces too, all constructions above apply, to subspac
 \lb
 Let $U$ and $W$ be subspaces in $V$, can the sum $\dim(U) + \dim(W)$ be greater than $\dim(V)$?
 \pr
-Argue why it might be true or find a counter example.
+Argue why it is true or find a counterexample.
 
 
 \lb
@@ -204,7 +258,7 @@ Compute the intersection $\smat{2}{\R} \cap \amat{2}{\R}$.
 
 
 \lb
-As a final result, we will state without proof
+This example can be abstractly formalized as
 \lb
 \textbf{Theorem 1.6.18}
 \lb
@@ -223,7 +277,49 @@ Every finite dimensional vector space has basis.
 
 
 
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $S = \cb{\vec v_1, \vec v_2, \vec v_3}$ be a spanning set of $V$.
+\begin{enumerate}
+    \item What are the possible dimensions of $V$?
+    \item Suppose $ \cb{v_1, v_3}$ is linearly independent, what are the possible dimensions
+        of $V$?
+    \item Can oy ucreate a basis for $V$ from $S$?
+\end{enumerate}
 
+
+
+\vspace{150pt}
+\lb
+With the results from this section, we can immediately obtain the following.
+\lb
+\textbf{Corollary \& Discussion}
+\lb
+Let $V$ be an $n$-dimensional vector space and $S$ a linearly independent family with $l$
+elements, then
+\begin{enumerate}
+    \item $ l\leq n$
+    \item if $l = n$, $S$ is a basis of $V$.
+\end{enumerate}
+
+
+\vspace{150pt}
+\lb
+\textbf{Discussion}
+\lb
+Let $\vec v_1, \vec v_2, \vec v_3, \vec v_4$ be vectors in a vector space $V$ and define
+the subspace $U = \spn{\vec v_1, \vec v_2, \vec v_3, \vec v_4 }$
+\pr
+Suppose
+\[ \vec v_3 = \vec v_1 - \vec v_2 \]
+\[ \vec v_4 = 2 \vec v_1 + 3 \vec v_2 - \vec v_3 \]
+\begin{enumerate}
+    \item What are the possible dimenions of $U$?
+    \item Suppose $\dim(U) = 2$. Does this imply that $ \cb{\vec v_3, \vec v_4}$ is linealry
+        independent?
+\end{enumerate}
 
 
 
@@ -278,13 +374,34 @@ Given a transformation $\map{V}[T]{W}$, is it true that
 \[ T \left( \Sum[i=1][k] α_i \vec v_i \right) =  \Sum[i=1][k] α_i T(\vec v_i) \qquad ?\]
 
 
+
+
+
+
+
+
+
+\newpage
 \lb
 \textbf{Discussion}
 \lb
 Which of the following functions are linear transformations?
 \begin{enumerate}
-    \item The derivative of a polynomial $\map{\pol{n}{\R}}[]{\pol{n}{\R}}$
-            $p(x) \mapsto \frac{d}{dx} p(x)$
+    \item
+        $\map{\R^2}[T]{\R}$ defined by $T \left( \ttpl{x}{y} \right) = \tx{max}\cb{x, y}$
+    \item
+        The derivative $ \map{\pol{n}{\R}}[\frac{d}{dx}]{\pol{n}{\R}}$
+    \[f(x) \mapsto \frac{df}{dx} (x)\]
+    \item
+        The transposition of a matrix $A \mapsto A^T$ as a function
+        $\map{\mat{n}{\R}}[T]{\mat{n}{\R}}$
+    \item
+        The function $\map{\mat{n}{\R}}[RREF]{\mat{n}{\R}}$ that computes the reduced row
+        echolon form of a matrix $A \mapsto \tx{RREF}(A)$.
+    \item
+        The evaluation function $\map{\pol{n}{\R}}[\tx{ev}_7]{\R}$ evaluating a polynomial at
+        the value 7.
+        \[ \tx{ev}_7(p) = p(7) \]
 \end{enumerate}
 
 
@@ -292,13 +409,59 @@ Which of the following functions are linear transformations?
 \lb
 \textbf{Proposition}
 \lb
-For any linear transformation $\map{V}[T]{W}$, $T(\vec 0_V) = \vec 0_W$.
+For any linear transformation $\map{V}[T]{W}$ we have
+\begin{enumerate}
+    \item $T(\vec 0_V) = \vec 0_W$
+    \item $T(-\vec v) = - T(\vec v)$
+\end{enumerate}
+
+\lb
+Is the converse also true?
+
+
+
+\newpage
+\lb
+\textbf{Definition}
+\begin{enumerate}
+    \item
+        A transformation that is bijective is called an \emph{isomorphism}. If there exists
+        and isomorphism between two vector spaces $V$ and $W$, they are called \emph{isomorphic}.
+    \item
+        A transformation $\map{V}[T]{V}$ for which domain and codomain agree is called
+        an \emph{endomorphism}.
+    \item
+        Given two vector space $V$ and $W$, the set of all linear
+        transformations from $V$ to $W$ is denoted
+        \[ \mathcal{L} (V, W) \]
+        or just $\mathcal{L}(V)$ if $V = W$.
+\end{enumerate}
 
 
 \lb
-\textbf{Proposition}
+\textbf{Exercise}
 \lb
-A transformation $\map{V}[T]{W}$ is uniquely specified by its values on elements of a basis on $V$.
+Show that for any vector spaces $V$ and $W$ the set $\mathcal{L}(V,W)$ is a
+vector space.
+\pr
+\emph{Hint:} Compare this to the vector space $\mathcal{F}(\R,\R)$ of
+functions from $\R$ to $\R$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
@@ -317,20 +480,98 @@ Let $V$ be a vector space with a basis $\mathcal{B} = \cb{\vec b_1, \ldots, \vec
 $\vec v ∈ V$
 \[ \vec v = v_1 \cdot \vec b_1 + \cdots + v_n \cdot \vec b_n \]
 \underline{the} unique representation in this basis.
-We call $[\vec{v}]_{\cal B} = \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix}$
+We call $v_1, \ldots, v_n$ the
+\emph{coordinates} of $\vec v$ in the basis $\cal B$ and 
+$[\vec{v}]_{\cal B} = \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix}$
 the \emph{coordinate vector} of $\vec v$ in the basis $\cal B$.
 
-
 \lb
-\textbf{Proposition}
+\textbf{Discussion}
+\lb
+Consider the basis $\mathcal{B} = \cb{1, 1+x, 1 + x + x^2}$ of $\pol{2}{\R}$.
+\begin{enumerate}
+    \item
+        Determine $[1]_{\mathcal{B}}$, $[x]_{\mathcal{B}}$,
+        $ [x^2]_{\mathcal{B}}$ and $ [1 + x]_{\mathcal{B}}$.
+    \item
+        Determine $[a + bx + cx^2]_{\mathcal{B}}$
+        for arbitrary scalars $a, b, c ∈ \R$ and show that
+        \[
+        [a + bx + cx^2]_{\mathcal{B}}
+        = a[1]_{\mathcal{B}}
+        + b[x]_{\mathcal{B}}
+        + c[x^2]_{\mathcal{B}}
+        \]
+\end{enumerate}
+
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Theorem}
 \lb
 Given an $n$-dimensional vector space $V$ with a basis $ \cal B$. The assignment of
 its coordinate vector $[\vec v]_{\mathcal{B}}$ to every vector $\vec v ∈ V$ is a linear
 transformation
 \[ \map{V}[γ^{\mathcal{B}}]{\R^n} \]
+Even more is true, $γ^{\mathcal{B}}$ is an isomorphism from $V$ to $\R^n$.
+\begin{proof}
+\end{proof}
+
+\vspace{300pt}
+\lb
+\textbf{Intuition}
+\lb
+Isomorphic vector spaces $V$ and $W$ can be regared as practically the same vector space,
+because we can use the isomorphism to go back and forth between elements from $V$ to $W$
+bijectively. Moreover, an isomorphism identifies the operations on $V$ and $W$.
+
+\lb
+The above theorem says that every vector space of dimension $n$ is isomoprhic to $\R^n$ and
+that the choice of a basis (there are many) tells us how to uniquely identify vectors
+$\vec v ∈ V$ with $n$-tuples $(v_1, \ldots, v_n) ∈ \R^n$.
+
+
+\lb
+That is to say $\R^n$ is the prototypical $n$-dimensional vector space.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Suppose $ \map{\pol{2}{\R}}[T]{\R}$ is given by 
+\[ T( 1 + x^2) = 5 \]
+\[ T( x - x^2) = 3 \]
+\[ T( 1 ) = 1 \]
+What is $T(x)$ ?
+
+
+\vspace{300pt}
+\lb
+\textbf{Proposition}
+\lb
+A transformation $\map{V}[T]{W}$ is uniquely determined by its values on elements
+of a basis on $V$.
+\begin{proof}
+\end{proof}
 
 
 
