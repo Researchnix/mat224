@@ -148,13 +148,77 @@ Remember that a matrix $A$ is symmetric if $\tp A = A$ and antisymmetric if $\tp
 
 
 
+\lb
+\textbf{Discussion}
+\begin{itemize}
+    \item
+    Can you argue that if $U \subseteq V$ is a subspace then $\dim (U) \leq \dim(V)$?
+    \item
+    Is it on the contrary true that for every subspace $U \subseteq V$
+    $\dim(U) = \dim(V)$ implies  $U = V$?
+\end{itemize}
+
+
+
+
 \newpage
+\lb
+The following result is very useful when we are looking for a basis
+of space that we already know the dimension of.
+\lb
+\textbf{Proposition}
+\lb
+Let $V$ be a vector space of dimension $n$ with a family $S$ containing $n$ vectors,
+then the following are equivalent.
+\begin{enumerate}
+    \item[(a)]
+        $S$ is a basis of $V$
+    \item[(b)]
+        $S$ is linearly independent
+    \item[(c)]
+        $S$ spans $V$
+\end{enumerate}
+
+
+\newpage
+
+\lb
+Since subspaces are vector spaces too, all constructions above apply, to subspaces.
+
+
 \lb
 \textbf{Discussion}
 \lb
-Can you argue that if $U \subseteq V$ is a subspace then $\dim (U) \leq \dim(V)$?
+Let $U$ and $W$ be subspaces in $V$, can the sum $\dim(U) + \dim(W)$ be greater than $\dim(V)$?
 \pr
-Is the converse true that if $\dim (U) = \dim(V)$ then $U = V$?
+Argue why it might be true or find a counter example.
+
+
+\lb
+\textbf{Example} (continued)
+\lb
+Consider again the subspaces of symmetric and anti symmetric $2 \times 2$ matrices,
+$\smat{2}{\R}$ and $\amat{2}{\R}$ respectively, in the vector space of all $2 \times 2$
+matrices $\mat{2}{\R}$.
+Compute the intersection $\smat{2}{\R} \cap \amat{2}{\R}$.
+
+
+\lb
+As a final result, we will state without proof
+\lb
+\textbf{Theorem 1.6.18}
+\lb
+Let $U$ and $W$ be finite dimensional subspaces of a vector space $V$, then
+\[ \dim (U + W) = \dim (U) + \dim(W) - \dim (U \cap W) \]
+\begin{proof}
+    Read the proof in the textbook (voluntarily).
+\end{proof}
+
+
+\lb
+\textbf{Corollary}
+\lb
+Every finite dimensional vector space has basis.
 
 
 
@@ -171,20 +235,99 @@ Is the converse true that if $\dim (U) = \dim(V)$ then $U = V$?
 
 
 
+\newpage
+\lb
+\textbf{Textbook:} Section 2.1
+
+\section*{Linear Transformatoins}%
+\label{sec:Linear Transformatoins}
+
+\lb
+\textbf{Definition 2.1.1}
+\lb
+A function $\map{V}[T]{W}$ between vector spaces
+$(V, +_V, \bullet_V)$ and $ (W, +_W, \bullet_W) $
+is called \emph{linear} if
+\begin{enumerate}
+    \item $T(\vec u +_V \vec v) = T(\vec v) +_W T(\vec v)$ \quad for all $\vec u, \vec v ∈ V$
+    \item $T(α \bullet_V \vec u) = α \bullet_W T(\vec v) $ \quad for all $\vec u ∈ V$ and $α ∈ \R$.
+\end{enumerate}
+
+
+\lb
+\textbf{Remark}
+\begin{itemize}
+    \item We usually use the expression \emph{linear transformation}
+        or short \emph{transformation} and not linear function.
+    \item Notice that the operations $+$ and $\cdot$ are exactly what distinguishes vector spaces
+        from sets. The requirements for a function to be linear guarantee that it mediates
+        between the operations on the domain and the target.
+\end{itemize}
+
+\lb
+\textbf{Examples}
+\begin{enumerate}
+    \item ...tbd
+\end{enumerate}
+
+
+\lb
+\textbf{Discussion}
+\lb
+Given a transformation $\map{V}[T]{W}$, is it true that 
+\[ T \left( \Sum[i=1][k] α_i \vec v_i \right) =  \Sum[i=1][k] α_i T(\vec v_i) \qquad ?\]
+
+
+\lb
+\textbf{Discussion}
+\lb
+Which of the following functions are linear transformations?
+\begin{enumerate}
+    \item The derivative of a polynomial $\map{\pol{n}{\R}}[]{\pol{n}{\R}}$
+            $p(x) \mapsto \frac{d}{dx} p(x)$
+\end{enumerate}
 
 
 
+\lb
+\textbf{Proposition}
+\lb
+For any linear transformation $\map{V}[T]{W}$, $T(\vec 0_V) = \vec 0_W$.
+
+
+\lb
+\textbf{Proposition}
+\lb
+A transformation $\map{V}[T]{W}$ is uniquely specified by its values on elements of a basis on $V$.
+
+
+\newpage
 
 
 
+\lb
+Recall that a basis in a vector space enbales us to write every vector uniquely as
+a linear combination. Since a linear combination is determined by its coefficients,
+all we need to remember for a fixed basis is the n-tuple of coefficients.
+To formalize this, we define...
+\lb
+\textbf{Definition}
+\lb
+Let $V$ be a vector space with a basis $\mathcal{B} = \cb{\vec b_1, \ldots, \vec b_n}$ and for
+$\vec v ∈ V$
+\[ \vec v = v_1 \cdot \vec b_1 + \cdots + v_n \cdot \vec b_n \]
+\underline{the} unique representation in this basis.
+We call $[\vec{v}]_{\cal B} = \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix}$
+the \emph{coordinate vector} of $\vec v$ in the basis $\cal B$.
 
 
-
-
-
-
-
-
+\lb
+\textbf{Proposition}
+\lb
+Given an $n$-dimensional vector space $V$ with a basis $ \cal B$. The assignment of
+its coordinate vector $[\vec v]_{\mathcal{B}}$ to every vector $\vec v ∈ V$ is a linear
+transformation
+\[ \map{V}[γ^{\mathcal{B}}]{\R^n} \]
 
 
 
