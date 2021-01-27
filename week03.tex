@@ -1,0 +1,196 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Bases, Dimension \& Linear Transformations}
+\rhead{Week 03}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Bases and Dimension}%
+\label{sec:title}
+
+\textbf{Textbook:} Section 1.6
+
+
+\lb
+\textbf{Definition 1.6.1}
+\lb
+A family of vectors $\cal B$ in a vector space $V$ is called \emph{a basis of $V$} if
+\begin{enumerate}
+    \item $\cal B$ spans $V$
+    \item $\cal B$ is linearly independent
+\end{enumerate}
+
+
+
+\lb
+\textbf{Examples} 
+\begin{enumerate}
+    \item $ \cb{\vec e_1, \ldots, \vec e_n} $ is a basis of $\R^n$.
+    \item We have seen last week that $ \cb{\ttpl{1}{1}, \ttpl{-1}{1}} $ is a basis of $\R^2$
+    \item Which of families of polynomials we have seen before is a basis of $\pol{2}{\R}$?
+        Can you write down a basis of $\pol{2}{\R}$ that does not contain any monomials?
+\end{enumerate}
+
+
+
+\lb
+\textbf{Theorem 1.6.3}
+\lb
+A family of vectors $\cal B$ is a basis of $V$ if and only if every vector
+$\vec v ∈ V$ can be written uniquely as a linear combination of vectors in
+$\cal B$.
+
+\begin{proof}
+\end{proof}
+
+
+
+\lb
+\textbf{Remark} 
+\begin{enumerate}
+    \item A vector space does not have just one unique
+        basis as we can easily verify.
+\end{enumerate}
+
+
+\lb
+\textbf{Theorem 1.6.6} 
+\lb
+Let $V$ be a vector space with a finite spanning set.
+For every linearly independent family $S$ in $V$, there
+is a basis $\cal B$ containing $S$.
+
+\lb
+Why do we need a finite spanning set for $V$? Some vector spaces, such as
+$\pol{}{\R}$ can not be spanned by finitely many polynomials.
+Can you show why?
+
+
+\lb
+Observe that a basis hits a sweet spot of a family that is not too
+large as that it would contain redundant vectors, but also not too
+small of a family that it couldn't span the vetcor space.
+\pr
+The \emph{Extend} and \emph{Reduce} theorems from last week
+give us the following:
+\lb
+A family of vectors that is linearly independent, but not a spanning set can
+be enlagred to a basis, a family that spans $V$, but is linearly
+dependent, can be cut down to form a basis.
+
+
+\newpage
+\lb
+Even though a basis is not unique to a vector space, we would like to extract
+an invariant, a label, something that characterizes the vectors space.
+This invariant is motivated by the Corollary following below.
+
+\lb
+\textbf{Theorem 1.6.10} 
+\lb
+If $V$ is spanned by a family $S$ with $m$ elements, then no linearly
+independent family $R$ in $V$ can have more than $m$ elements.
+\begin{proof}
+    
+\end{proof}
+
+
+\lb
+\textbf{Corollary 1.6.11}
+\lb
+Any two bases $\cal B$ and $\cal B'$ of $V$ have the same number of elements
+
+
+
+\lb
+\textbf{Definitions} 
+\begin{enumerate}
+    \item If a vector space $V$ has a finite basis, we say that $V$ is
+        \emph{finite dimensional}.
+    \item For a finite dimensional vector space $V$, the \emph{dimension}
+        of $V$
+        \[ \dim(V) \]
+        is the number of elements of a basis of $V$.
+\end{enumerate}
+
+
+
+\lb
+\textbf{Discussion} 
+\lb
+What is the dimension of 
+\begin{enumerate}
+    \item[] $\dim( \R ) = $
+    \item[] $\dim( \pol{n}{\R} ) = $
+    \item[] $\dim( \mat{2}{\R} ) = $
+    \item[] $\dim( \smat{2}{\R} ) = $
+    \item[] $\dim( \amat{2}{\R} ) = $
+\end{enumerate}
+\lb
+Remember that a matrix $A$ is symmetric if $\tp A = A$ and antisymmetric if $\tp A = -A$.
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Can you argue that if $U \subseteq V$ is a subspace then $\dim (U) \leq \dim(V)$?
+\pr
+Is the converse true that if $\dim (U) = \dim(V)$ then $U = V$?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
