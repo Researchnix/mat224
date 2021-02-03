@@ -1,0 +1,217 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Linear Transformations, Image \& Kernel}
+\rhead{Week 04}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Linear Transformations Part II}%
+\label{sec:title}
+
+\textbf{Textbook:} Sections 2.2 \& 2.3
+
+\lb
+The last hour before the lecture next week will be a review session!
+Please collect your questions and email me if you would like to discuss anything
+particular. (include MAT224 in subject, thanks)
+
+\lb
+All vector spaces from now on, unless stated otherwise, will be assumed to be finite dimensional.
+
+\lb
+What does it take to define a linear transformatio between vector spaces if they have bases?
+
+
+
+
+
+
+
+
+
+\newpage
+\pr
+The matrix of a linear transformation:
+Remember that a basis is used to encode vectors in n-tuples of coefficient to remember what
+linear combination of the basis elements we need to recover the vector.
+
+\lb
+We can use the same idea to encode linear transformations
+\lb
+\textbf{Example 2.2.2}
+\lb
+Let $V = W = \R^2$ with the standard basis $ \cb{\vec e_1, \vec e_2}$.
+Define $ \map{V}[T]{W}$ by
+\[ T(\vec e_1) = \vec e_1 + \vec e_2 \]
+\[ T(\vec e_2) = \vec 2 e_1 - 2 \vec e_2 \]
+\vspace{50pt}
+
+
+
+
+
+
+
+
+\lb
+\textbf{Algorithm}
+\lb
+Given a transformation $ \map{V}[T]{W}$ given as a `formula',
+this is how to compute its matrix in two chosen bases $α$ of $V$ and $β$ of $W$:
+\begin{enumerate}
+    \item For each basis element $\vec b_i$ in $V$, compute $T(\vec b_i)$.
+    \item Find the coorindate vector $γ^{\cal C}(T(\vec b_i)) = [ T(\vec b_i) ]_{\cal C}$
+    \item Assemble these coordinate vectors as columns in a matrix
+\end{enumerate}
+
+
+
+\lb
+\textbf{Discussion}
+\lb
+Apply the above algorithm to find the matrix representing the derivative
+$ \frac{d}{dx}$ from $\pol{2}{\R}$ to itself.
+Choose the basis on $\pol{2}{\R}$ consisting of monomials $α = \cb{1, x, x^2}$.
+
+
+
+
+\newpage
+\lb
+\textbf{Definition 2.2.6}
+\lb
+Let $T$ be a transformation between finite dimensional vector spaces $V$ and $W$
+The \emph{matrix of the linear transformation} $T$ with respect to bases $α$ and $β$ is the
+matrix $[T]_α^β$ satisfying
+\[ [T]_α^β \cdot [\vec v]_α = [T(\vec v) ]_β \]
+
+
+\lb
+We now rephrase the algorithm from the previous page in more mathematical terms.
+\lb
+\textbf{Proposition} 
+\lb
+In the context of the above definition, the matrix of $T$ can be computed as
+\[ [T]_α^β = γ^β \circ T \circ (γ^α)^{-1}\]
+
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Remark} 
+\begin{enumerate}
+    \item The size of the matrix depends on the dimensions of the vector spaces.
+\end{enumerate}
+
+
+
+
+
+
+
+
+\lb
+\textbf{Discussion}
+\lb
+On the contrary, given a matrix $A ∈ \mat{n, m}{\R}$, does this give us a
+transformation?
+
+
+
+
+
+
+
+
+
+\lb
+\textbf{Summary}
+\lb
+The upshot of this section is that linear transformations are completely interchangable
+with matrices!
+
+
+
+
+
+
+
+
+
+\lb
+\textbf{Discussion (bonus)}
+\lb
+Without doing a lot of work, can you argue what the matrix
+representing the composition $F \circ T$ is assuming you know $[F]$ and $[T]$?
+
+
+\newpage
+\section*{Kernel and Image}%
+\label{sec:Kernel and Image}
+
+
+\lb
+\textbf{Definition} 
+Let $ \map{V}[T]{W} $ be a linear transformation.
+\begin{enumerate}
+    \item
+        $\ker(T) = \cb{\vec v ∈ V ~\vert~  T(\vec v) = 0}$
+    \item
+        $\tx{im}(T) = \cb{T(v) ∈ W ~\vert~ \vec v ∈ V }$
+\end{enumerate}
+
+\lb
+\textbf{Proposition}
+\lb
+For a transformation $ \map{V}[T]{W} $, $\ker(T)$ is a subspace in $V$
+and $\tx{im}(T)$ a subspace in $W$.
+\begin{proof}
+\end{proof}
+
+
+
+\lb
+\textbf{Theorem (Rank Nullity)}
+\lb
+For any transformation $ \map{V}[T]{W} $ the dimensions of the kernel and
+the image add to the dimension of the domain.
+\[ \dim(V) = \dim (\ker(T)) + \dim(\tx{im(T)}) \]
+It is common to call the dimension of the kernel the \emph{nullity}
+and the dimension of the image the \emph{rank} of $T$
+\[ \dim(V) = \tx{null}(T) + \tx{rank(T)} \]
+
+
+
+\lb
+\textbf{Theorem}
+\lb
+A transformation $ \map{V}[T]{W}$ is injective if and only if $\ker(T) = \cb{0}$.
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+
+
+\end{document}
