@@ -25,19 +25,20 @@
 \section*{Linear Transformations Part II}%
 \label{sec:title}
 
-\textbf{Textbook:} Sections 2.2 \& 2.3
+\textbf{Textbook:} Section 2.2
 
 \lb
+\textbf{Announcements} 
+\begin{itemize}
+\item 
 The last hour before the lecture next week will be a review session!
 Please collect your questions and email me if you would like to discuss anything
 particular. (include MAT224 in subject, thanks)
 
-\lb
-All vector spaces from now on, unless stated otherwise, will be assumed to be finite dimensional.
-
-\lb
-What does it take to define a linear transformatio between vector spaces if they have bases?
-
+\item
+All vector spaces from now on, unless stated otherwise,
+will be assumed to be finite dimensional.
+\end{itemize}
 
 
 
@@ -45,15 +46,13 @@ What does it take to define a linear transformatio between vector spaces if they
 
 
 
-
-\newpage
-\pr
-The matrix of a linear transformation:
-Remember that a basis is used to encode vectors in n-tuples of coefficient to remember what
-linear combination of the basis elements we need to recover the vector.
 
 \lb
+Remember that a basis encodes a vector $\vec v ∈ V$ as an $n$-tuple.
 We can use the same idea to encode linear transformations
+
+
+
 \lb
 \textbf{Example 2.2.2}
 \lb
@@ -70,14 +69,20 @@ Define $ \map{V}[T]{W}$ by
 
 
 
+\newpage
 \lb
 \textbf{Algorithm}
 \lb
 Given a transformation $ \map{V}[T]{W}$ given as a `formula',
-this is how to compute its matrix in two chosen bases $α$ of $V$ and $β$ of $W$:
+this is how to compute its matrix in two chosen bases
+\[ α = \cb{\vec{α}_1, \ldots \vec{α}_m} \]
+of $V$ and
+\[ β = \cb{\vec{β}_1, \ldots \vec{β}_n} \]
+of $W$
+\lb
 \begin{enumerate}
-    \item For each basis element $\vec b_i$ in $V$, compute $T(\vec b_i)$.
-    \item Find the coorindate vector $γ^{\cal C}(T(\vec b_i)) = [ T(\vec b_i) ]_{\cal C}$
+    \item For each basis element $\vec{α}_i$ in $V$, compute $T(\vec{α}_i)$.
+    \item Find the coorindate vector $γ^β(T(\vec{α}_i)) = [ T(\vec{α}_i) ]_β$.
     \item Assemble these coordinate vectors as columns in a matrix
 \end{enumerate}
 
@@ -98,114 +103,137 @@ Choose the basis on $\pol{2}{\R}$ consisting of monomials $α = \cb{1, x, x^2}$.
 \textbf{Definition 2.2.6}
 \lb
 Let $T$ be a transformation between finite dimensional vector spaces $V$ and $W$
+with bases $α$ and $β$ respectively.
 The \emph{matrix of the linear transformation} $T$ with respect to bases $α$ and $β$ is the
 matrix $[T]_α^β$ satisfying
 \[ [T]_α^β \cdot [\vec v]_α = [T(\vec v) ]_β \]
 
 
+
+
+
+\newpage
 \lb
-We now rephrase the algorithm from the previous page in more mathematical terms.
+\textbf{Discussion}
+\begin{enumerate}
+    \item
+        What does he `size' of the matrix $[T]_α^β$ depend on?
+    \item
+        What is the matrix of the identity transformation $ \map{V}[\tx{id}_V]{V}$?
+\end{enumerate}
+
+
+\lb
+\textbf{Exmaple}
+\lb
+We compute the matrix of the linear transformation $ \map{\pol{3}{\R}}[\tx{ev}_2]{\R}$
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+On the contrary, given a matrix $A ∈ \mat{n, m}{\R}$, does this give us a
+transformation? What are the domain and codomain?
+
+
+\vspace{300pt}
+\lb
+\textbf{Summary}
+\begin{enumerate}
+    \item
+        The upshot of this section is that linear transformations are completely interchangable
+        with matrices!
+        The identification depends on the choice of bases for the domain and codomain.
+    \item
+        The operations
+        \begin{itemize}
+            \item matrix of a transformation $[T]_α^β$
+            \item transformation of a matrix $T_A$
+        \end{itemize}
+        are inverse to each other.
+\end{enumerate}
+
+
+
+
+\newpage
+\lb
+We now rephrase the \emph{algorithm} from before in more mathematical terms.
+(Remember, abstraction is a powerful tool!)
 \lb
 \textbf{Proposition} 
 \lb
 In the context of the above definition, the matrix of $T$ can be computed as
 \[ [T]_α^β = γ^β \circ T \circ (γ^α)^{-1}\]
+\begin{proof}
+\end{proof}
 
-
-
-
-\vspace{100pt}
-\lb
-\textbf{Remark} 
-\begin{enumerate}
-    \item The size of the matrix depends on the dimensions of the vector spaces.
-\end{enumerate}
-
-
-
-
-
-
-
-
+\vspace{200pt}
 \lb
 \textbf{Discussion}
-\lb
-On the contrary, given a matrix $A ∈ \mat{n, m}{\R}$, does this give us a
-transformation?
-
-
-
-
-
-
-
-
-
-\lb
-\textbf{Summary}
-\lb
-The upshot of this section is that linear transformations are completely interchangable
-with matrices!
-
-
-
-
-
-
-
-
-
-\lb
-\textbf{Discussion (bonus)}
 \lb
 Without doing a lot of work, can you argue what the matrix
 representing the composition $F \circ T$ is assuming you know $[F]$ and $[T]$?
 
 
-\newpage
-\section*{Kernel and Image}%
-\label{sec:Kernel and Image}
-
+\vspace{200pt}
+\lb
+\textbf{Definition}
+\lb
+Let $ \map{V}[T]{W}$ be a linear transformation and pick $\vec w ∈ W$.
+The \emph{preimage of } $\vec w$ \emph{under} $T$ is the subset of all $\vec v ∈ V$ that map
+to $\vec w$ under $T$.
+\[ T^-1 (w)\cb{\vec v ∈ V ~ \vert ~ T(\vec v) = \vec w} \]
 
 \lb
-\textbf{Definition} 
-Let $ \map{V}[T]{W} $ be a linear transformation.
-\begin{enumerate}
-    \item
-        $\ker(T) = \cb{\vec v ∈ V ~\vert~  T(\vec v) = 0}$
-    \item
-        $\tx{im}(T) = \cb{T(v) ∈ W ~\vert~ \vec v ∈ V }$
-\end{enumerate}
-
-\lb
-\textbf{Proposition}
-\lb
-For a transformation $ \map{V}[T]{W} $, $\ker(T)$ is a subspace in $V$
-and $\tx{im}(T)$ a subspace in $W$.
-\begin{proof}
-\end{proof}
+\q{We do \emph{not} say that $T$ is invertible here and $T^{-1}$ is \emph{not} the inverse of $T$}
 
 
+% \newpage
+% \section*{Kernel and Image}%
+% \label{sec:Kernel and Image}
 
-\lb
-\textbf{Theorem (Rank Nullity)}
-\lb
-For any transformation $ \map{V}[T]{W} $ the dimensions of the kernel and
-the image add to the dimension of the domain.
-\[ \dim(V) = \dim (\ker(T)) + \dim(\tx{im(T)}) \]
-It is common to call the dimension of the kernel the \emph{nullity}
-and the dimension of the image the \emph{rank} of $T$
-\[ \dim(V) = \tx{null}(T) + \tx{rank(T)} \]
+
+% \lb
+% \textbf{Definition} 
+% Let $ \map{V}[T]{W} $ be a linear transformation.
+% \begin{enumerate}
+    % \item
+        % $\ker(T) = \cb{\vec v ∈ V ~\vert~  T(\vec v) = 0}$
+    % \item
+        % $\tx{im}(T) = \cb{T(v) ∈ W ~\vert~ \vec v ∈ V }$
+% \end{enumerate}
+
+% \lb
+% \textbf{Proposition}
+% \lb
+% For a transformation $ \map{V}[T]{W} $, $\ker(T)$ is a subspace in $V$
+% and $\tx{im}(T)$ a subspace in $W$.
+% \begin{proof}
+% \end{proof}
 
 
 
-\lb
-\textbf{Theorem}
-\lb
-A transformation $ \map{V}[T]{W}$ is injective if and only if $\ker(T) = \cb{0}$.
-\begin{proof}
-\end{proof}
+% \lb
+% \textbf{Theorem (Rank Nullity)}
+% \lb
+% For any transformation $ \map{V}[T]{W} $ the dimensions of the kernel and
+% the image add to the dimension of the domain.
+% \[ \dim(V) = \dim (\ker(T)) + \dim(\tx{im(T)}) \]
+% It is common to call the dimension of the kernel the \emph{nullity}
+% and the dimension of the image the \emph{rank} of $T$
+% \[ \dim(V) = \tx{null}(T) + \tx{rank(T)} \]
+
+
+
+% \lb
+% \textbf{Theorem}
+% \lb
+% A transformation $ \map{V}[T]{W}$ is injective if and only if $\ker(T) = \cb{0}$.
+% \begin{proof}
+% \end{proof}
 
 
 
