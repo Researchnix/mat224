@@ -73,7 +73,7 @@ Define $ \map{V}[T]{W}$ by
 \lb
 \textbf{Algorithm}
 \lb
-Given a transformation $ \map{V}[T]{W}$ given as a `formula',
+Given a linear transformation $ \map{V}[T]{W}$ given as a `formula',
 this is how to compute its matrix in two chosen bases
 \[ α = \cb{\vec{α}_1, \ldots \vec{α}_m} \]
 of $V$ and
@@ -102,7 +102,7 @@ Choose the basis on $\pol{2}{\R}$ consisting of monomials $α = \cb{1, x, x^2}$.
 \lb
 \textbf{Definition 2.2.6}
 \lb
-Let $T$ be a transformation between finite dimensional vector spaces $V$ and $W$
+Let $T$ be a linear transformation between finite dimensional vector spaces $V$ and $W$
 with bases $α$ and $β$ respectively.
 The \emph{matrix of the linear transformation} $T$ with respect to bases $α$ and $β$ is the
 matrix $[T]_α^β$ satisfying
@@ -135,7 +135,7 @@ We compute the matrix of the linear transformation $ \map{\pol{3}{\R}}[\tx{ev}_2
 \textbf{Discussion}
 \lb
 On the contrary, given a matrix $A ∈ \mat{n, m}{\R}$, does this give us a
-transformation? What are the domain and codomain?
+linear transformation? What are the domain and codomain?
 
 
 \vspace{300pt}
@@ -149,8 +149,8 @@ transformation? What are the domain and codomain?
     \item
         The operations
         \begin{itemize}
-            \item matrix of a transformation $[T]_α^β$
-            \item transformation of a matrix $T_A$
+            \item matrix of a linear transformation $[T]_α^β$
+            \item linear transformation of a matrix $T_A$
         \end{itemize}
         are inverse to each other.
 \end{enumerate}
@@ -178,62 +178,211 @@ Without doing a lot of work, can you argue what the matrix
 representing the composition $F \circ T$ is assuming you know $[F]$ and $[T]$?
 
 
+
+
+
+
+\newpage
+
+\lb
+\textbf{Definition (2.3.1 \& 2.3.10)}
+\lb
+For a linear transformation $ \map{V}[T]{W}$, we define
+\begin{enumerate}
+    \item
+        the \emph{preimage} $T^{-1}(S)$ of $S \subseteq W$ under $T$ as all $\vec v ∈ V$ that map into $S$.
+    \item
+        the \emph{kernel} $\ker(T)$ of $T$  as all $\vec v ∈ V$ that map to $\vec 0$ under $T$,
+    \item 
+        the \emph{image} $\tx{im}(T)$ of $T$ as all $\vec w ∈ W$ such that $\vec w = T(\vec v)$ for some $\vec v ∈ V$,
+\end{enumerate}
+
+
+
+
+\lb
+\textbf{Example}
+\begin{itemize}
+    \item
+    The kernel of $\map{\pol{n}{\R}}[\frac{d}{dx}]{\pol{n}{\R}}$ are all constant polynomials,
+    while the image consists of polynomials of degree $n-1$.
+
+    \item
+    The kernel of the evaluation map $\map{\pol{n}{\R}}[\tx{ev}_2]{\pol{n}{\R}}$ are all
+    polynomials that have a root at $x = 2$. What is the image?
+
+    \item
+    What is the image of the linear transformation defined in example 2.2.2 $\map{\R^2}[T]{\R^2}$?
+    \[ T(\vec e_1) = \vec e_1 + \vec e_2 \]
+    \[ T(\vec e_2) = \vec 2 e_1 - 2 \vec e_2 \]
+\end{itemize}
+
+
+\newpage
+\lb
+\textbf{Proposition 2.3.2 \& 2.3.11}
+\lb
+For every linear transformation $\map{V}[T]{W}$
+\begin{enumerate}
+    \item $\ker(T)$ is a subspace in $V$
+    \item $\tx{im}(T)$ is a subspace in $W$.
+\end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+
+\vspace{300pt}
+\lb
+\textbf{Proposition 2.3.7}
+\lb
+The subspace $\ker(T)$ is the solution space to the homogeneous system of $[T]_α^β$.
+\begin{proof}
+\end{proof}
+
+\vspace{200pt}
+\lb
+\textbf{Example}
+\lb
+Example of computation to find $\ker(T)$
+
+
+
+
+\newpage
+\lb
+\textbf{Observation}
+\lb
+The subspace $\tx{im}(T)$ is the space of all $ \vec b ∈ \R^n$ such that the system
+$[T]_α^β \vec x = \vec b$ has a solution.
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition 2.3.12}
+\lb
+If $ \cb{\vec v_1, \ldots, \vec v_k}$ spans $V$, then $ \cb{T(\vec v_1), \ldots, T(\vec v_k)}$
+spans $\tx{im}(T)$.
+\begin{proof}
+\end{proof}
+
+
+
+
 \vspace{200pt}
 \lb
 \textbf{Definition}
 \lb
-Let $ \map{V}[T]{W}$ be a linear transformation and pick $\vec w ∈ W$.
-The \emph{preimage of } $\vec w$ \emph{under} $T$ is the subset of all $\vec v ∈ V$ that map
-to $\vec w$ under $T$.
-\[ T^-1 (w)\cb{\vec v ∈ V ~ \vert ~ T(\vec v) = \vec w} \]
+For a matrix $A = [ a_1, a_2, \ldots, a_m] ∈ \mat{n, m}{\R}$ we denote
+the span of the columns of $A$ by
+\[ \tx{col}(A) = \spn{a_1, \ldots, a_m} \]
+
 
 \lb
-\q{We do \emph{not} say that $T$ is invertible here and $T^{-1}$ is \emph{not} the inverse of $T$}
-
-
-% \newpage
-% \section*{Kernel and Image}%
-% \label{sec:Kernel and Image}
-
-
-% \lb
-% \textbf{Definition} 
-% Let $ \map{V}[T]{W} $ be a linear transformation.
-% \begin{enumerate}
-    % \item
-        % $\ker(T) = \cb{\vec v ∈ V ~\vert~  T(\vec v) = 0}$
-    % \item
-        % $\tx{im}(T) = \cb{T(v) ∈ W ~\vert~ \vec v ∈ V }$
-% \end{enumerate}
-
-% \lb
-% \textbf{Proposition}
-% \lb
-% For a transformation $ \map{V}[T]{W} $, $\ker(T)$ is a subspace in $V$
-% and $\tx{im}(T)$ a subspace in $W$.
-% \begin{proof}
-% \end{proof}
+\textbf{Proposition}
+\lb
+For every linear transformation $\map{V}[T]{W}$
+\[ \tx{im}(T) = \tx{col}([T]_α^β) \]
+\begin{proof}
+\end{proof}
 
 
 
-% \lb
-% \textbf{Theorem (Rank Nullity)}
-% \lb
-% For any transformation $ \map{V}[T]{W} $ the dimensions of the kernel and
-% the image add to the dimension of the domain.
-% \[ \dim(V) = \dim (\ker(T)) + \dim(\tx{im(T)}) \]
-% It is common to call the dimension of the kernel the \emph{nullity}
-% and the dimension of the image the \emph{rank} of $T$
-% \[ \dim(V) = \tx{null}(T) + \tx{rank(T)} \]
+\newpage
+\lb
+\textbf{Example} 
+\lb
+Example computation to find $\tx{im}(T)$
+
+\vspace{300pt}
+\lb
+Notice that the columns might not be independent,
+in which case the columns are a spanning set of the image, but not a basis.
+
+\lb
+\textbf{Theorem}
+\lb
+Given a linear transformation $\map{V}[T]{W}$ with matrix $[T]_α^β$ for some bases $α$ and $β$.
+Let $R = \tx{RREF}([T]_α^β)$ be the reduced row echolon form of $[T]_α^β$.
+\lb
+Then if the leading 1s in are $R$ lie in columns
+$j_1, j_2,\ldots, j_r$, the columns $j_1, j_2,\ldots, j_r$ of $[T]_α^β$ are a basis for 
+$ \tx{col}([T]_α^β)$
+\begin{proof}
+\end{proof}
+
+
+\vspace{100pt}
+\lb
+\textbf{Discussion} 
+\lb
+Suppose a linear transformation $\map{V}[T]{W}$ is given in a some bases $α$ and $β$ by
+\[ [T]_α^β = \begin{pmatrix} 1 & 2 & 0 & 1 \\ 1 & 2 & 1 & 0 \end{pmatrix} \]
+Find a basis for $\tx{im}(T)$ and $\ker(T)$.
 
 
 
-% \lb
-% \textbf{Theorem}
-% \lb
-% A transformation $ \map{V}[T]{W}$ is injective if and only if $\ker(T) = \cb{0}$.
-% \begin{proof}
-% \end{proof}
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Theorem 2.3.17 (Rank-Nullity)}
+\lb
+For any linear transformation $\map{V}[T]{W}$
+\[ \dim(V) = \dim(\ker(T)) + \dim( \tx{im}(T)) \]
+
+
+\lb
+\textbf{Remark} 
+\begin{itemize}
+    \item 
+        $\dim( \tx{im}(T))$ is the same as the rank of $[T]_α^β$ and by abuse of
+        notation also referred to as $\tx{rank}(T)$.
+    \item
+        Some books refer to $\dim(\ker(T))$ as the \emph{nullity} of $T$.
+\end{itemize}
+
+\begin{proof}
+\end{proof}
+
+
+\vspace{300pt}
+\lb
+\textbf{Theorem}
+\lb
+A linear transformation $T$ is injective if and only if $\ker(T) = \cb{\vec 0}$
+\begin{proof}
+\end{proof}
+
+
+
+\newpage
+\lb
+\textbf{True or False} 
+Let $\map{V}[T]{W}$ be a linear transformation
+\begin{enumerate}
+    \item[$\square$]
+        If $T$ is an isomorphism, then $\dim(V) = \dim(W)$.
+    \item[$\square$]
+        If $\dim(V) > \dim(W)$, $T$ has to be injective.
+    \item[$\square$]
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
