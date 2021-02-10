@@ -27,7 +27,6 @@
 \lb
 \textbf{Announcements for the test} 
 \begin{enumerate}
-    \item Whatever Sean wrote on quercus.
     \item Don't quote numbers of Theorems, but their content and why they apply in this case.
     \item Famous theorems have names, for example \emph{Extend-,} \emph{Reduce-} and \emph{Fundamental} Theorem.
 
@@ -38,23 +37,25 @@
         well in advance!
     \item \emph{Don't} leave the upload to the last minute!
         Plan for some technical difficulties, they always occur! :(
+
+    \item
+        Read question statements carefully and slowly! Make sure you distinguish \emph{if} vs.
+        \emph{if and only if} in statements. Give a proof or explanation when the question
+        requires one.
+    \item
+        While we write $\vec v$ for vectors, the book and other sources may write
+        $\textbf{x} ∈ V$.
+    \item
+        By abuse of notation, the image of a vector under a transformation $T(\vec v)$ can
+        sometimes be abbreviated as $T \textbf{x} $.
+
 \end{enumerate}
 
+
+
+\vspace{100pt}
 \section*{Kernel and Image}%
-
 \textbf{Textbook:} Section 2.3
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \lb
@@ -73,6 +74,7 @@ For a linear transformation $ \map{V}[T]{W}$, we define
 
 
 
+\vspace{100pt}
 \lb
 \textbf{Example}
 \begin{itemize}
@@ -81,7 +83,7 @@ For a linear transformation $ \map{V}[T]{W}$, we define
     while the image consists of polynomials of degree $n-1$.
 
     \item
-    The kernel of the evaluation map $\map{\pol{n}{\R}}[\tx{ev}_2]{\pol{n}{\R}}$ are all
+    The kernel of the evaluation map $\map{\pol{n}{\R}}[\tx{ev}_2]{\R}$ are all
     polynomials that have a root at $x = 2$. What is the image?
 
     \item
@@ -105,44 +107,95 @@ For every linear transformation $\map{V}[T]{W}$
 
 
 
+
+
+
+
 \vspace{300pt}
 \lb
 \textbf{Proposition 2.3.7}
 \lb
-The subspace $\ker(T)$ is the solution space to the homogeneous system of $[T]_α^β$.
+Let $\map{V}[T]{W}$ be a linear transformation between vector spaces $V$ and $W$ with
+bases $α$ and $β$ respectively.
+\lb
+\ble{
+    The subspace $\ker(T)$ is isomorphic to the solution space to
+    the homogeneous system of $[T]_α^β$.
+}
+\lb
+\q{
+    That is,
+    \begin{itemize}
+        \item
+            for every $\vec v ∈ \ker(T)$ the coordinate tuple $[\vec v]_α$
+            solves $[T]_α^β \vec x = \vec 0$.
+        \item
+            for every solution $ \vec s = \begin{pmatrix} s_1 \\ \vdots \\ s_n \end{pmatrix}$
+            of the system $[T]_α^β \vec x = \vec 0$, the \emph{realization} in the basis $α$, namely
+            \[ \iv{(γ^α)} \left(\begin{pmatrix} s_1 \\ \vdots \\ s_n \end{pmatrix} \right) \]
+            is a vector in $\ker(T)$.
+    \end{itemize}
+}
 \begin{proof}
 \end{proof}
-
-\vspace{200pt}
-\lb
-\textbf{Example}
-\lb
-Example of computation to find $\ker(T)$
 
 
 
 
 \newpage
 \lb
-\textbf{Observation}
+\textbf{Example}
 \lb
-The subspace $\tx{im}(T)$ is the space of all $ \vec b ∈ \R^n$ such that the system
-$[T]_α^β \vec x = \vec b$ has a solution.
+Find the kernel of the evaluation map $ \map{\pol{n}{\R}}[\tx{ev}_2]{\R}$.
 
 
-\vspace{200pt}
+
+
+\newpage
 \lb
-\textbf{Proposition 2.3.12}
+\textbf{Observation (analogous to 2.3.7)}
 \lb
-If $ \cb{\vec v_1, \ldots, \vec v_k}$ spans $V$, then $ \cb{T(\vec v_1), \ldots, T(\vec v_k)}$
-spans $\tx{im}(T)$.
+Let $\map{V}[T]{W}$ be a linear transformation between vector spaces $V$ and $W$ with
+bases $α$ and $β$ respectively.
+\lb
+\ble{
+    The subspace $\tx{im}(T)$ is isomorphic to the space of all $\vec b ∈ \R^m$ such that
+    the system of linear equations $[T]_α^β \vec x = \vec b$ has a solution
+}
+\lb
+\q{
+    That is,
+    \begin{itemize}
+        \item
+            for every $\vec w ∈ \tx{im}(T)$ the system
+            $[T]_α^β \vec x = [\vec w]_β$ has a solution.
+        \item
+            for every constant vector $ \vec b = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix}$
+            such that the system $[T]_α^β \vec x = \vec b$ has a solution, the \emph{realization} in the basis $β$, namely
+            \[ \iv{(γ^β)} \left(\begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix} \right) \]
+            is a vector in $\tx{im}(T)$.
+    \end{itemize}
+}
 \begin{proof}
 \end{proof}
 
 
-
-
 \vspace{200pt}
+
+\lb
+\textbf{Discussion} 
+\lb
+Based on this observation, which $\vec v ∈ V$ will be in the preimage $T^{-1}(\vec w)$?
+
+
+
+
+
+
+
+
+
+\newpage
 \lb
 \textbf{Definition}
 \lb
@@ -151,29 +204,51 @@ the span of the columns of $A$ by
 \[ \tx{col}(A) = \spn{a_1, \ldots, a_m} \]
 
 
+\vspace{100pt}
+\lb
+\textbf{Lemma}
+\lb
+For a matrix $A = [ a_1, a_2, \ldots, a_m] ∈ \mat{n, m}{\R}$ the system
+\[ A\vec x = \vec b \]
+has a solution if and only if
+$\vec b ∈ \tx{col}(A)$
+\begin{proof}
+\end{proof}
+
+
+\vspace{100pt}
 \lb
 \textbf{Proposition}
 \lb
-For every linear transformation $\map{V}[T]{W}$
-\[ \tx{im}(T) = \tx{col}([T]_α^β) \]
+Let $\map{V}[T]{W}$ be a linear transformation between vector spaces $V$ and $W$ with
+bases $α$ and $β$ respectively.
+\lb
+The image of $T$ is isomorphic to $\tx{col}([T]_α^β)$ under the coordinate map
+$ \map{W}[γ^β]{\R^m}$.
 \begin{proof}
 \end{proof}
+
+\vspace{100pt}
+\lb
+\textbf{Example}
+\lb
+Find the image of the linear transformation 
+\begin{align*}
+    \R^2 &\ra \R^3 \\
+    \ttpl{x}{y} &\mapsto \tttpl{x+y}{x}{y}
+\end{align*}
+
 
 
 
 \newpage
 \lb
-\textbf{Example} 
-\lb
-Example computation to find $\tx{im}(T)$
-
-\vspace{300pt}
-\lb
 Notice that the columns might not be independent,
 in which case the columns are a spanning set of the image, but not a basis.
 
+
 \lb
-\textbf{Theorem}
+\textbf{Theorem (Nicholson - Linear algebra with Applications)}
 \lb
 Given a linear transformation $\map{V}[T]{W}$ with matrix $[T]_α^β$ for some bases $α$ and $β$.
 Let $R = \tx{RREF}([T]_α^β)$ be the reduced row echolon form of $[T]_α^β$.
@@ -185,7 +260,7 @@ $ \tx{col}([T]_α^β)$
 \end{proof}
 
 
-\vspace{100pt}
+\vspace{200pt}
 \lb
 \textbf{Discussion} 
 \lb
@@ -196,6 +271,30 @@ Find a basis for $\tx{im}(T)$ and $\ker(T)$.
 
 
 
+% \lb
+% \textbf{Proposition 2.3.12}
+% \lb
+% If $ \cb{\vec v_1, \ldots, \vec v_k}$ spans $V$, then $ \cb{T(\vec v_1), \ldots, T(\vec v_k)}$
+% spans $\tx{im}(T)$.
+% \begin{proof}
+% \end{proof}
+
+
+
+\newpage
+\lb
+A similar question is discussed in Example 2.3.9 in the book.
+
+
+\lb
+\textbf{Discussion}
+\lb
+Find the kernel, the image and bases of them for
+the following transformations in bases of your choice.
+
+\begin{enumerate}
+    \item tbd
+\end{enumerate}
 
 
 
