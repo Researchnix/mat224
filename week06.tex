@@ -1,0 +1,362 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Dimension Theorem, Composition \& Inverses }
+\rhead{Week 05}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+
+
+
+
+
+\newpage
+\section*{Dimension Theorem and its Applications}%
+
+\textbf{Textbook:} 2.4
+\lb
+\textbf{Theorem 2.3.17 (Dimension Theorem or Rank-Nullity Theorem)}
+\lb
+For any linear transformation $\map{V}[T]{W}$
+\[ \dim(V) = \dim(\ker(T)) + \dim( \tx{im}(T)) \]
+
+
+\lb
+\textbf{Remark} 
+\begin{itemize}
+    \item 
+        $\dim( \tx{im}(T))$ is the same as the rank of $[T]_α^β$ and by abuse of
+        notation also referred to as $\tx{rank}(T)$.
+    \item
+        Some books refer to $\dim(\ker(T))$ as the \emph{nullity} of $T$.
+\end{itemize}
+
+\begin{proof}
+\end{proof}
+
+
+\vspace{250pt}
+\lb
+\textbf{Proposition 2.4.2}
+\lb
+A linear transformation $T$ is injective if and only if $\ker(T) = \cb{\vec 0}$
+\begin{proof}
+\end{proof}
+
+
+
+\newpage
+\lb
+\textbf{Example} 
+\lb
+If a linear transformation $ \map{V}[T]{W}$ is injective, then the image
+\[ T( \vec v_1) , \ldots, T(\vec v_k) \]
+of a linearly independent family in $V$
+\[ \vec v_1 , \ldots, \vec v_k \]
+under $T$ is linearly independent in $W$.
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{True or False}
+\lb
+Let $\map{V}[T]{W}$ be a linear transformation.
+\begin{enumerate}
+    \item[$\square$]
+        If $\dim(V) > \dim(W)$, $T$ has to be injective.
+    \item[$\square$]
+        Can $ \map{\pol{n}{\R}}[\frac{d}{dx}]{\pol{n}{\R}}$ be injective?
+    \item[$\square$]
+        $T$ is is surjective if and only if $\dim(\tx{im}(T)) = \dim (W)$.
+    \item[$\square$]
+        If $T$ is an isomorphism, then $\dim(V) = \dim(W)$.
+\end{enumerate}
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Corollary (2.4.4 \& 2.4.5)}
+\lb
+A linear transformation might be injective if and only if $\dim(V) \leq \dim(W)$.
+\pr
+\textbf{Warning:} But it doesn't have to be injective!!
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (2.4.7)}
+\lb
+A linear transformation $ \map{V}[T]{W} $ is surjective if and only if
+$\dim(\tx{im}(T)) = \dim(W)$
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+How do the dimensions of $V$ and $W$ obstruct whether or not $\map{V}[T]{W}$
+can be surjective? Explain your answer.
+\pr
+\textbf{Hint: } Think along the lines of Corollary 2.4.4
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (2.4.10)}
+\lb
+Let $\dim{V} = \dim{W}$. A linear transformation $\map{V}[T]{W}$ is injective
+if and only if it is surjective.
+\begin{proof}
+\end{proof}
+
+
+\vspace{200pt}
+\lb
+\textbf{Example (2.4.21)}
+\lb
+The Dimension Theorem is really nothing new.
+
+
+
+
+
+\newpage
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+Consider the linear map
+\[ \map{\pol{n}{\R}}[]{\R^2} \]
+\[ p(x) \mapsto \ttpl{p(0)}{p(5)} \]
+Argue without computation whether this map is injective or surjective.
+
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Homework}
+\lb
+Read Propsition 2.4.11 including the proof and look again at Example 2.4.21 in the book.
+
+
+
+
+
+
+\newpage
+\section*{Composition}%
+\textbf{Textbook:} Section 2.5
+
+
+
+\lb
+\textbf{Recall}
+\lb
+The \emph{composition }of two transformations $\map{U}[S]{V}$ and $ \map{V}[T]{W} $
+is the transformation 
+\[ \map{U}[T \circ S]{W} \]
+deifned by 
+\[ T \circ S (\vec u) = T( S( \vec u)) \]
+
+\lb
+\textbf{Proposition (2.5.1)}
+\lb
+In the above setup, $ T \circ S$ is linear if $T$ and $S$ are linear.
+\begin{proof}
+\end{proof}
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Examples} 
+\lb
+\begin{enumerate}
+    \item ~
+        \vspace{100pt}
+    \item Let $p ∈ \pol{n}{\R}$ be a polynomial and consider the linear transformations
+        \[ \map{\R}[t_y]{\R} \]
+        \[ t_y(x) = x -y  \]
+        and
+        \[ \map{\pol{n}{\R}}[ev_x]{\R} \]
+        What is the composition
+        \[ ev_x \circ t_y \]
+    \item
+        What is the composition $ \frac{d}{dx} \circ \frac{d}{dx}$ on $\pol{n}{\R}$?
+\end{enumerate}
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion 2.5.6}
+\lb
+Let $\map{U}[S]{V}$ and $ \map{V}[T]{W} $ be two composable linear transformations.
+Can you argue why
+\begin{enumerate}
+    \item $\ker(S) \subseteq \ker( T \circ S)$
+    \item $\tx{im}(T \circ S) \subseteq \tx{im}(T)$
+\end{enumerate}
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Observation}
+\lb
+Let $\map{U}[S]{V}$ and $ \map{V}[T]{W} $ be two composable linear transformations.
+Fix bases $α, β$ and $ε$ of $U$, $V$ and $W$ respectively.
+How does the matrix of the composition $ T \circ S$ relate to the matrices $[T]_β^ε$ and
+$[S]_α^β$?
+
+
+
+
+\newpage
+\lb
+So the real question is what the composition of matrices should be.
+\lb
+\textbf{Definition}
+\lb
+Let $A$ and $B$ be matrices of size $m \times n$ and $n \times p$.
+The \emph{product} of the matrices $A$ and $B$  is the matrix $AB$ such that
+\[ AB \vec x  = A \cdot ( B \vec x) \]
+for all $\vec x ∈ \R^n$.
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (2.5.9)}
+\lb
+If $A$ has entries $[a]_{ij}$ and $B$ has entries $[b]_{ij}$, then the $(i,j)$ entry of
+$AB$ is
+\[ [AB]_{ij} = \Sum[k=0][m] a_ik b_kj \]
+
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Intuition}
+\lb
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Example}
+Compute the matrix product of ...
+
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+If $A$ and $B$ are composable matrices, is the rank of $A$ or the rank of $AB$
+(possibly) greater? Explain!
+
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+Recall that the matrix representing $\map{\pol{n}{\R}}[\frac{d}{dx}]{\pol{n}{\R}}$ in the
+basis $α = \cb{1, x, x^2}$ is given by
+
+\[ A = \begin{pmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 2 \\
+    0 & 0 & 0
+\end{pmatrix} \]
+Verify that $A^2$ is the matrix representing $ \frac{d^2}{dx^2}$
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Remark}
+\lb
+\emph{Literally } everyting we know about linear transformations also holds for matrices.
+\begin{enumerate}
+    \item
+        $A(BC) = (AB)C$
+    \item
+        $I \cdot A = AC$
+    \item
+        $\cdots$
+\end{enumerate}
+
+\lb
+\textbf{Discussion} 
+\lb
+Given two composable matrices, is
+\[ AB = BA \]
+true?
+
+
+
+
+
+\newpage
+\section*{The Inverse of a Linear Transformation}%
+\textbf{Textbook:} Section 2.6
+\lb
+tbd
+
+
+\end{document}
