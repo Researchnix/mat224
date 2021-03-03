@@ -1,0 +1,491 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Inverses, Change of Basis \& Determinant}
+\rhead{Week 07}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Recall}
+\lb
+For two composable linear transformations $\map{U}[S]{V}$ and $\map{V}[T]{W}$ and bases
+$α$, $β$ and $γ$ respectively, in matrices this means
+\[ [ T \circ S ] _α ^γ = [ T ] _β ^γ [ S ] _α ^ β \]
+
+
+
+
+
+\vspace{150pt}
+\lb
+\textbf{Discussion}
+\lb
+Recall that the matrix representing $\map{\pol{n}{\R}}[\frac{d}{dx}]{\pol{n}{\R}}$ in the
+basis $α = \cb{1, x, x^2}$ is given by
+
+\[ A = \begin{pmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 2 \\
+    0 & 0 & 0
+\end{pmatrix} \]
+Verify that $A^2$ is the matrix representing $ \frac{d^2}{dx^2}$
+
+
+
+
+
+\vspace{150pt}
+\lb
+\textbf{Remark}
+\lb
+\emph{Literally} everything we know about linear transformations also holds for matrices.
+\begin{enumerate}
+    \item
+        $A(BC) = (AB)C$
+    \item
+        $I \cdot A = AC$
+    \item
+        $ \tx{rank}(A) = \dim(\tx{im}(T)) $
+    \item
+        $\cdots$
+\end{enumerate}
+
+
+\lb
+\textbf{Discussion} 
+\lb
+Given two composable matrices, is
+\[ AB = BA \]
+true?
+
+
+
+
+
+
+
+
+
+\newpage
+\section*{The Inverse of a Linear Transformation}%
+\textbf{Textbook:} Section 2.6
+\lb
+
+
+\lb
+\textbf{Definitions} 
+\lb
+\begin{enumerate}
+    \item 
+        An \emph{inverse }to a linear transformation $\map{V}[T]{W}$ is another transformation
+        $\map{W}[S]{V}$ such that
+        \[ S \circ T = \id{V} \]
+        and
+        \[ T \circ S = \id{W} \]
+    \item
+        A linear transformation that has an inverse is called \emph{invetible}.
+\end{enumerate}
+
+
+
+\lb
+\textbf{Proposition 2.6.2 \& 2.6.1}
+\begin{enumerate}
+    \item
+        A linear transformation $\map{V}[T]{W}$ has an inverse if and only if it is bijective.
+    \item
+        The inverse of a linear transformation is also linear.
+\end{enumerate}
+\textbf{Remark:} Remember, we called bjective linear transformations \emph{isomorphisms}, this
+is now the same as invertible linear transformations.
+\begin{proof}
+\end{proof}
+
+
+\newpage
+
+
+
+
+\lb
+\textbf{Proposition (not in book)}
+\lb
+An inverse transformation to $\map{V}[T]{W}$, if it exists, is unique
+\pr
+We can therefore denote it by \emph{the} inverse and use the notation $T^{-1}$
+\begin{proof}
+\end{proof}
+
+\vspace{200pt}
+
+
+
+
+\lb
+\textbf{Examples} 
+\begin{enumerate}
+    \item
+        Rotation $\map{\R^2}[R_θ]{\R^2}$ has the inverse $\map{\R^2}[R_{-θ}]{\R^2}$
+    \item
+    The evaluation map $\map{\pol{n}{\R}}[ev_4]{\R}$ does not have an
+    inverse because it is not injective for $ n \geq 1$.
+    \item
+        Define for $\vec x, \vec y ∈ \R^n$ the
+        \begin{enumerate}
+            \item
+                \emph{dot product}
+                \[ \vec x \cdot \vec y = x_1 y_1 + x_2 y_2 + \ldots + x_n y_n \]
+            \item
+                \emph{norm}
+                \[ \nrm{\vec x}^2 = \vec x \cdot \vec x = x_1^2  + x_2^2 + \ldots + x_n^2 \]
+        \end{enumerate}
+    The projection of a vector $\vec x$ onto a vector $\vec y$ is not invertible.
+    \[ \tx{proj}_{\vec x} (\vec y) = \frac{\vec x \cdot \vec y }{\nrm{\vec x}^2} \cdot \vec x \]
+\end{enumerate}
+
+\vspace{200pt}
+
+\lb
+\textbf{Exercise}
+Fix a vector $\ttpl{a}{b}$ in $\R^2$ and compute the matrix representing the linear
+transformation
+\[ \vec y \mapsto \tx{proj}_{\ttpl{a}{b}}(\vec y) \]
+
+
+
+
+
+
+
+
+
+\newpage
+
+\lb
+\textbf{Discussion} 
+\lb
+Define for a vector space $V$ with basis $α = \cb{α_1, α_2, α_3, α_4}$
+the \emph{left shift operator} $\map{V}[L]{V}$ by
+\[ T(α_i) = α_{i+1} \]
+for $i = 1, 2, 3$ and
+\[ T(α_4) = α_1 \]
+What is the matrix representing $L$ in the basis $α$? Is $L$ invertible?
+
+
+
+\vspace{200pt}
+
+
+\lb
+\textbf{Proposition 2.6.7}
+\lb
+Two finite dimensional vector spaces $V$ and $W$ are isomorphic if and only if
+$\dim(V) = \dim(W)$.
+\begin{proof}
+\end{proof}
+
+\vspace{200pt}
+
+
+\lb
+\textbf{Examples}
+\lb
+Since the following vector spaces have the same dimension, they have to be isomorphic
+\begin{enumerate}
+    \item \[ \pol{n-1}{\R}\]  and \[ \R^n \]
+    \item
+        \[ W = \cb{\vec x ∈ \R^3 ~ \vert ~ x_1 - x_2 + x_3 = 0 } \]
+        and 
+        \[ \R^2 \]
+\end{enumerate}
+
+\newpage
+
+
+\lb
+\textbf{Discussion}
+\lb
+At how many points do we need to evaluate a polynomial of degree $3$  to reconstruct it?
+Explain your answer in terms of a linear transformation
+\begin{align*}
+    \pol{3}{\R} &\ra \R^n \\
+    p(x) &\mapsto \tttpl{p(x_1)}{\vdots}{p(x_n)}
+\end{align*}
+
+
+
+
+
+\newpage
+\lb
+\textbf{Observation}
+\lb
+Let $\map{V}[T]{W}$ be an invertible linear transformation with inverse $T^{-1}$.
+The matrices of $T$ and $\iv T$ in some bases $α$ and $β$ satisfy
+\[ [T]_α^β \cdot [\iv T]_β^α  = I_n\]
+
+
+\vspace{300pt}
+
+
+\lb
+\textbf{Note: } All matrices in the remainder of this section are assumed to be square matrices.
+
+
+\lb
+This motivates the following.
+\lb
+\textbf{Definition}
+A matrix $A$ of size $n \times n$ is invertible if there exists another matrix $B$ such that
+\[ AB = I_n \]
+and
+\[ BA = I_n \]
+
+
+\lb
+The results for invertible transformations apply as well to matrices.
+\lb
+\textbf{Proposition}
+\begin{enumerate}
+    \item The inverse of a matrix $A$ is unique if it exists.
+    \item A matrix $A$ is invertible if and only if it has full rank.
+        This means for an $n\times n$ matrix
+        that its rank, which is the number of leading 1s in $RREF(A)$, is equal to $n$.
+\end{enumerate}
+
+
+
+
+
+\newpage
+\lb
+\textbf{Proposition 2.6.11}
+\lb
+For a linear transformation $\map{V}[T]{W}$ between vector spaces with bases $α$ and $β$
+\[ ([T]_α^β)^{-1} = [\iv T]_β^α \]
+\begin{proof}
+\end{proof}
+
+
+\vspace{200pt}
+
+\lb
+\textbf{Algorithm (page 119)}
+\lb
+How to find the inverse of a matrix $A$
+\begin{enumerate}
+    \item Write $A$ and $I_n$ together in a $n \times 2n$ matrix
+        \[ [ A ~ \vert ~ I_n ] \]
+    \item
+        Reduce this matrix to its RREF
+        \[ [ A ~ \vert ~ I_n ]  \rightsquigarrow R \]
+    \item
+        resulting matrix will contain the inverse of $A$ as the right $n \times n$ block.
+        \[ [ A ~ \vert ~ I_n ]  \rightsquigarrow [ I_n ~ \vert ~ \iv A ] \]
+\end{enumerate}
+
+
+
+
+\lb
+\textbf{Example (2.6.9)}
+\lb
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\begin{enumerate}
+    \item 
+    Compute the inverse of the left shift operator $L$ as a matrix.
+    \item 
+Compute the inverse of the matrix
+\[ \begin{pmatrix}
+    1 & 1 & 0 \\
+    0 & -1 & 1 \\
+    0 & 0 & 1 \\
+\end{pmatrix}
+\]
+\end{enumerate}
+
+
+
+
+
+\newpage
+\section*{Change of Basis}%
+\textbf{Textbook:} Section 2.6
+
+
+
+\lb
+The choice of the right basis makes some computations a lot easier. Take for example
+the projection onto the line of slope $m$ in $\R^2$.
+\lb
+\textbf{Example}
+\lb
+
+
+\vspace{300pt}
+\lb
+\textbf{Question}
+\lb
+Given a vector space $V$ with two bases $α$ and $β$, a vector $\vec v ∈ V$ has two different
+coordinate representations $[v]_α$ and $[v]_β$.
+\lb
+How can we change from the basis $α$ to the basis $β$?
+
+\lb
+\textbf{Example (2.7.1)}
+\lb
+
+
+
+
+
+\newpage
+\lb
+\textbf{Proposition (2.7.3)}
+\lb
+Given a vector space $V$ with two bases $α$ and $β$. The coordinate tuples of a vector
+$\vec v ∈ V$ are related by the matrix representing the identity transformation
+\[ \map{V}[\id{V}]{V} \]
+from the basis $α$ to the basis $β$.
+\[ [ I] _α ^β \cdot [ v ]_α = [v]_β \]
+
+\lb
+We therefore call $ [I]_α^β$ the \emph{change of basis} matrix from $α$ to $β$.
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+
+\vspace{250pt}
+\lb
+\textbf{Discussion}
+\lb
+\begin{enumerate}
+    \item
+        Are change of basis matrices invertible? If so, what are there inverses?
+    \item
+        Compute the change of basis matrix going in $\pol{2}{\R}$
+        from $ α = \cb{1 + x + x^2, 1, x }$ to $β = \cb{1, x, x^2}$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Proposition}
+\lb
+Let $\map{V}[T]{W}$ be a linear transformation between vector spaces with bases $α$ and $β$
+that is represented by
+\[ [T]_α ^ β \]
+When we introduce new bases $α'$ and $β'$ on $V$ and $W$ respectively with change of basis
+matrices $[I_V]_α^{α'}$ and $[I_W]_β^{β'}$, the matrix representing $T$ in these bases is given
+by
+\[ [T] _{α'}^{β'} = [I_W]_β^{β'} [T]_α^β [I_V]_{α'}^α \]
+
+
+
+
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Definition}
+\lb
+If we forget that these matrices come from linear transformations, we may define for
+two $n \times n$ matrices $A$ and $B$ related by
+\[ A = P B \iv P \]
+for some invertible $n \times n$ matrix $P$ to be \emph{similar} matrices.
+
+
+
+\lb
+\textbf{Proposition}
+\lb
+Similar matrices have the same rank.
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Example}
+\lb
+Change the basis for the transformation of $\tx{proj}_{\vec x}(\vec y)$ from the standard basis
+to a more convenient basis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section*{The Determinant}%
+\textbf{Textbook:} Section 3.1
+\lb
+
+
+
+tbd
+
+
+
+
+\end{document}
