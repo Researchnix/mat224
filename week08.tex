@@ -1,0 +1,282 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Determinants and Eigenvalues Pt I}
+\rhead{Week 08}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+
+
+
+
+\section*{The Determinant}%
+\textbf{Textbook:} Sections 3.1, 3.2 \& 3.3
+
+
+
+\lb
+\textbf{Observation (3.1.6)}
+\lb
+When is a $2 \times 2$ matrix
+$ A = \begin{pmatrix}
+    a & b \\ c & d
+\end{pmatrix}$
+invertible?
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Definition}
+\lb
+We define the determinant funtion $\map{\mat{2}{\R}}[det]{\R}$ to be
+$ det \begin{pmatrix}
+    a & b \\ c & d
+\end{pmatrix} = ad - b c $
+
+
+
+\lb
+\textbf{Remark}
+\lb
+\begin{enumerate}
+    \item As we observed above, a $2 \times 2$ matrix is invertible if and only if $ det(A) \neq 0$.
+    \item It is helpful to think about $A = [ ~ \vec x ~~ \vec y ~] $ to to consist of column
+        vectors $\vec x, \vec y ∈ \R^2$.
+\end{enumerate}
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Proposition (3.1.1)}
+\lb
+The are of the parallelogram spanned by vectors $\vec x$ and $\vec y$ in $\R^2$ is
+equal to the determinant of the matrix $A =  [ ~ \vec x ~~ \vec y~ ] $.
+
+
+\vspace{50pt}
+\lb
+From this it is clear that the area is nonzero
+\pr
+if and only if the vectors spanning the parallelogram
+\pr
+are linearly independent, that is, not parallel.
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Observation}
+\lb
+Let $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ be a $2 \times 2$ matrix and denote
+its columns as $\vec x = \ttpl{a}{c}$ and $\vec y = \ttpl{b}{d}$.
+
+\lb
+We can think of $A$ as the matrix of a linear transformation
+\[ \R^2 \ra \R^2 \]
+sending 
+\begin{align*}
+    \ttpl{1}{0} \mapsto \ttpl{a}{c} \\
+    \ttpl{0}{1} \mapsto \ttpl{b}{d}
+\end{align*}
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Compute the determinant, draw the parallelogram and decide if the corresponding transformation
+is invertible for the following matrices.
+\begin{enumerate}
+    \item
+        \[ A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} \]
+    \vspace{200pt}
+    \item
+        \[ A = \begin{pmatrix} 4 & 2 \\ -2 & 1 \end{pmatrix} \]
+\end{enumerate}
+
+
+
+
+
+\newpage
+\lb
+\textbf{Remark}
+\lb
+\begin{enumerate}
+    \item Let again $A = [ ~ \vec x ~~ \vec y ] $ be a $ 2 \times 2 $ matrix with columns
+        $\vec x$ and $\vec y$.
+        The determinant function as a funtion of the columns $ det(\vec x, \vec y)$
+        has the following properties
+        \begin{enumerate}
+            \item linear in both arguments
+            \vspace{50pt}
+            \item alternating
+            \vspace{50pt}
+            \item normalized
+            \vspace{50pt}
+        \end{enumerate}
+    \item
+        The book calls this the area function $Area(\vec x , \vec y)$ of the vectors spanning
+        the parallelogram.
+\end{enumerate}
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (3.1.4)}
+\lb
+The determinant funtion is the unique funtion satisfying all properties above.
+\begin{proof}
+    In the book
+\end{proof}
+
+
+
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Discussion}
+\lb
+Can you show that
+\[ det( [~ \vec x ~~ \vec y ~ ] ) = 0 \]
+if $ \cb{\vec x, \vec y}$ is linearly dependent by only using the properties above?
+
+
+
+
+
+
+\newpage
+\section*{Determinant of n x n matrix}%
+\textbf{Textbook:} Sections 3.2
+
+\lb
+\textbf{Goal}
+\lb
+Generalize the det function to all $n \times n$ matrices as a function of $n$ vectors
+$\vec x_1, \ldots, \vec x_n$ with an equivalent set of properties.
+\begin{enumerate}
+    \item multilinear
+    \vspace{50pt}
+    \item alternating
+    \vspace{50pt}
+    \item normalized
+    \vspace{50pt}
+\end{enumerate}
+
+\lb
+\textbf{Definition}
+\lb
+Let $A ∈ \mat{n}{\R}$ be a $n \times n$ matrix. Define the $ij$-minor $A_{ij}$ to be the
+$ (n-1) \times (n-1)$ matrix obtained by deleting the $i$-th row and $j$th column.
+
+
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+Compute for the matrix $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9\end{pmatrix}$ 
+the minor $A_{23}$/
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Proposition (3.2.5, 3.2.6)}
+\lb
+There exists a unique multilinear and alternating function $f$ on the columns of $3 \times 3$
+matrices that is normalized such that $f(I_n) = 1$.
+
+
+\lb
+\textbf{Definition (3.2.7)}
+\lb
+We define the determinant of a $3 \times 3$ matrix to be this unique function.
+\[ det(A) = a_{11} det(A_{11}) - a_{12} det(A_{12}) + a_{13} det(A_{13}) \]
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+Compute the determinant of the matrix
+\[ A = \begin{pmatrix} 1 & 0 & 1 \\ 2 & 3 & 1 \\ 0 & 3 & 2 \end{pmatrix} \]
+
+
+
+
+
+
+\newpage
+\textbf{Remarks}
+\lb
+\begin{enumerate}
+    \item The formula through which we defined the determinant function
+        is called the \emph{cofactor expansion}.
+    \item It is also common to call
+        \[ a_{ij} det(A_{ij}) \]
+        the $ij$-cofactor of a matrix $A$.
+    \item
+        There is nothing special about the first row, we can expand the $det(A)$ along
+        any row or column.
+        \lb
+        \textbf{Example}
+        \lb
+        \[ A = \begin{pmatrix} 1 & 0 & 1 \\ 2 & 3 & 1 \\ 0 & 3 & 2 \end{pmatrix} \]
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
