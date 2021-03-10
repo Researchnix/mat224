@@ -69,7 +69,7 @@ $ det \begin{pmatrix}
 \lb
 \textbf{Proposition (3.1.1)}
 \lb
-The are of the parallelogram spanned by vectors $\vec x$ and $\vec y$ in $\R^2$ is
+The area of the parallelogram spanned by vectors $\vec x$ and $\vec y$ in $\R^2$ is
 equal to the determinant of the matrix $A =  [ ~ \vec x ~~ \vec y~ ] $.
 
 
@@ -119,7 +119,7 @@ is invertible for the following matrices.
         \[ A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} \]
     \vspace{200pt}
     \item
-        \[ A = \begin{pmatrix} 4 & 2 \\ -2 & 1 \end{pmatrix} \]
+        \[ A = \begin{pmatrix} 4 & 2 \\ -2 & -1 \end{pmatrix} \]
 \end{enumerate}
 
 
@@ -196,9 +196,9 @@ $\vec x_1, \ldots, \vec x_n$ with an equivalent set of properties.
 \end{enumerate}
 
 \lb
-\textbf{Definition}
+\textbf{Definition (3.2.4)}
 \lb
-Let $A ∈ \mat{n}{\R}$ be a $n \times n$ matrix. Define the $ij$-minor $A_{ij}$ to be the
+Let $A ∈ \mat{n}{\R}$ be a $n \times n$ matrix. Define the $ij$-\emph{minor} $A_{ij}$ to be the
 $ (n-1) \times (n-1)$ matrix obtained by deleting the $i$-th row and $j$th column.
 
 
@@ -207,7 +207,7 @@ $ (n-1) \times (n-1)$ matrix obtained by deleting the $i$-th row and $j$th colum
 \textbf{Discussion}
 \lb
 Compute for the matrix $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9\end{pmatrix}$ 
-the minor $A_{23}$/
+the minor $A_{23}$
 
 
 
@@ -267,6 +267,8 @@ Compute the determinant of the matrix
 \lb
 \textbf{Definition} We define for an $n \times n$ matrix the determinant function
 \[ det(A) = \Sum[j=1][n] (-1)^{i + j} a_{ij} det(A_{ij})\]
+as the cofactor expansion along any row $i$ or likewise along any column.
+
 \lb
 \textbf{Theorem 3.2.8}
 \lb
@@ -335,11 +337,14 @@ If $A$ and $B$ are $n \times n$ matrices, then
 \end{enumerate}
 \begin{proof}
 \end{proof}
+\vspace{300pt}
 
 
+
+
+\lb
 This is very useful for transformations, because their matrix representative depends on a choice
 of basis
-\vspace{300pt}
 \lb
 \textbf{Corollary (3.3.8)}
 \lb
