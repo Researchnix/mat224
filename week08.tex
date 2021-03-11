@@ -407,6 +407,124 @@ finite dimension, then
 \textbf{Textbook:} Section 4.1
 
 
+\lb
+\textbf{Observation}
+\lb
+A transformation $ T ∈ \mathcal{L}(V)$ can both stretch and rotate vectors $\vec v \in V$.
+Can we find nonzero vectors which are only stretched? (since $T(\vec 0) = \vec 0$ is
+always true...)
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Definition (4.1.2)}
+\lb
+Given a linear transformation $\map{V}[T]{V}$.
+\begin{enumerate}
+    \item A nonzero vector $\vec v ∈ V$ is called an \emph{eigenvector} of $T$ if for some 
+        scalar $λ ∈ \R$
+        \[ T(\vec v) = λ \vec v  \]
+        \ble{That is, $\vec v$ is only stretched by $T$.}
+    \item If a nonzero vector $\vec v ∈ V$ such that $T(\vec v) = λ \vec v$ exists, we call
+        $λ$ an \emph{eigenvaule} of $T$ corresponding to $\vec v$.
+\end{enumerate}
+\pr
+\ble{One also says: `$\vec v$ is an eigenvector of $T$ with eigenvalue $λ$'}
+
+
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Examples}
+\lb
+\begin{enumerate}
+    \item The projection onto the line of slope $m$ in $\R^2$.
+    \vspace{300pt}
+\item (4.1.1 in the book)
+\lb
+The transformation $\map{\R^2}[T_A]{\R^2}$ represented by the matrix
+\[ \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} \]
+has an eigenvector $\ttpl{1}{1}$ with eigenvalue $λ_1 = 3$ and another eigenvector
+$ \ttpl{1}{-1}$ with eigenvalue $λ_2 = 1$.
+\end{enumerate}
+
+
+
+
+\newpage
+\lb
+\textbf{Question}
+\lb
+How do we find eigenvectors and eigenvalues of a transformation $T ∈ \cal L(V)$ in general?
+
+\vspace{200pt}
+This observation proves the following
+\lb
+\textbf{Proposition (4.1.5)}
+\lb
+A nonzero vector $\vec v ∈ V$ is an eigenvector of $T$ with eigenvalue $λ$ if and only if
+\[ \vec v ∈ \ker(T - λ \cdot \tx{id}_V) \]
+
+
+
+\vspace{30pt}
+\lb
+\q{\textbf{Question}}
+\lb
+\q{But for which $λ ∈ \R$ can we expect to find eigenvectors?}
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Proposition (4.1.9)}
+\lb
+$λ ∈ \R$ is an eigenvalue of $T ∈ \cal L(V)$ if and only if
+\[ \det{T - λ \cdot \tx{id}_V} = 0 \]
+\ble{That is, there are eigenvectors $\vec v ∈ V$ with eigenvalue $λ$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (4.1.6)}
+\lb
+For a given eigenvalue $λ$ of  $T ∈ \cal L(V)$ the set of all eigenvectors
+\[ E_λ = \cb{\vec v ∈ V ~ \vert ~ T(\vec v) = λ  \vec v } \]
+is a subspace of $V$ called the \emph{$λ$-eigenspace} of $T$.
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Example (4.1.1)}
+\lb
+Let's have another look at example (4.1.1) from the book,
+Let $\map{\R^2}[T_A]{\R^2}$ be the linear transformation represented by the matrix
+\[ \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} \]
+Compute its eigenvalues and the corresponding eigenspaces with the theory introduced above.
+
+
+
 
 
 
