@@ -1,0 +1,302 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Eigenvalues, Eigenvectors and Diagonalizability}
+\rhead{Week 09 I}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Eigenvalues and Eigenvectors Pt II}%
+\textbf{Textbook:} Section 4.1
+
+\lb
+\textbf{Proposition (4.1.5)}
+\lb
+A nonzero vector $\vec v ∈ V$ is an eigenvector of $T$ with eigenvalue $λ$ if and only if
+\[ \vec v ∈ \ker(T - λ \cdot \tx{id}_V) \]
+\begin{proof}
+    
+\end{proof}
+\vspace{200pt}
+\lb
+\textbf{Recall \& Discussion}
+\lb
+For a transformation $T ∈ \cal L(V)$ which of these statements are equivalent to 
+\emph{$λ$ is an eigenvalue of $T$}?
+\begin{enumerate}
+    \item $T(\vec v) = λ \vec v$ for some $\vec v ∈ V$
+    \item $\ker(T - λ \tx{id}_V) \neq \cb{0}$
+    \item $T - λ \tx{id}_V$ is not an isomorphism
+\end{enumerate}
+
+
+
+
+\vspace{30pt}
+\lb
+\q{\textbf{Question}}
+\lb
+\q{So for which $λ ∈ \R$ can we expect to find eigenvectors?}
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Proposition (4.1.9)}
+\lb
+$λ ∈ \R$ is an eigenvalue of $T ∈ \cal L(V)$ if and only if
+\[ \det{T - λ \cdot \tx{id}_V} = 0 \]
+\ble{That is, there are eigenvectors $\vec v ∈ V$ with eigenvalue $λ$.}
+\begin{proof}
+\end{proof}
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (4.1.6)}
+\lb
+For a given eigenvalue $λ$ of  $T ∈ \cal L(V)$ the set of all eigenvectors
+\[ E_λ = \cb{\vec v ∈ V ~ \vert ~ T(\vec v) = λ  \vec v } \]
+together with with the zero vector $\vec 0$
+is a subspace of $V$ called the \emph{$λ$-eigenspace} of $T$.
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{Example (4.1.1)}
+\lb
+Let's have another look at example (4.1.1) from the book.
+Let $\map{\R^2}[T_A]{\R^2}$ be the linear transformation represented by the matrix
+\[ \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} \]
+Compute its eigenvalues and the corresponding eigenspaces with the theory introduced above.
+
+
+
+
+\newpage
+\lb
+\textbf{Definition}
+\lb
+Let $A$ be an $n \times n$ matrix. The polynomial $c_A(λ) = \det{A - λ I_n}$ is called the
+\emph{characteristic polynomial} of A.
+
+\vspace{30pt}
+\lb
+Following this definition and proposition 4.1.9, we can say that eigenvalues of a matrix $A$
+will be the roots of its characteristic polynomial.
+
+
+
+\vspace{170pt}
+\lb
+\textbf{Proposition (4.1.12)}
+\lb
+Similar matrices have equal characteristic polynomial
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Corollary}
+\lb
+The characteristic polynomial for a transformation $T ∈ \cal (L)$ as
+\[ c_T(λ) =  \det{[T]_α^α - λI_n} \]
+does not depend on the choice of basis.
+
+
+
+
+
+
+
+\newpage
+\lb
+\textbf{True or False}
+\begin{enumerate}
+    \item $T ∈ \mathcal{L}(V)$ is an isomorphism if and only if $0$ is not an eigenvalue.
+    \item Every transformation has at least one eigenvalue.
+    \item There are infinitely many eigenvectors to every eigenvalue of a transformation.
+    \item There is at least one eigenvector to every eigenvalue of a transformation.
+\end{enumerate}
+
+\vspace{100pt}
+\lb
+\textbf{Discussion}
+\lb
+Suppose the transformation $T ∈ \mathcal{L}(V)$ is represented by the matrix
+\[ \begin{pmatrix}
+    2 & 1 & 0 \\
+    0 & 2 & 0 \\
+    2 & 3 & 1
+\end{pmatrix}
+\]
+with respect to some basis $α$.
+\begin{enumerate}
+    \item Find the characteristic polynomial $c_T(λ)$.
+    \item Find all eigenvalues of $T$.
+    \item Find a basis for each eigenspace of $T$.
+\end{enumerate}
+
+
+
+\newpage
+\section*{Diagonalizability}%
+\textbf{Textbook:} Section 4.2
+
+\lb
+\textbf{Definition (4.2.1)}
+\lb
+A linear transformation $ T ∈ \mathcal{L}(V)$ on a finite dimensional vector space $V$ is
+said to be \emph{diagonalizable} if there exists a basis of $V$
+consisting entirely of eigenvectors of $T$.
+
+\lb
+\ble{Why does this definition makes sense?}
+Try to find the matrix $[T]_α^α$ in a basis of eigenvectors $α = \cb{α_1, \ldots, α_n}$
+
+
+\vspace{200pt}
+\lb
+\textbf{Goal}
+\lb
+Find a condition to determine whether a transformation is diagonalizable or not.
+
+\lb
+\textbf{Definition}
+\lb
+Let $λ$ be an eigenvalue of a linear transformation $T$ on $V$.
+\begin{enumerate}
+    \item The \emph{algebraic multiplicity} $m_λ$ of $λ$ is the degree with which 
+        $c_T$ vanishes at $λ$.
+    \item The \emph{geometric multiplicity} of $λ$ is the dimension of the eigenspace $E_λ(T)$
+\end{enumerate}
+
+
+
+\newpage
+\lb
+\textbf{Proposition (4.2.4)}
+\lb
+Let $\vec v_1, \ldots \vec v_k$ be eigenvectors of a linear transformation $\map{V}[T]{V}$,
+then $ \cb{\vec v_1, \ldots, \vec v_n}$ is linearly independent in $V$.
+
+
+\vspace{200pt}
+\lb
+\textbf{Corollary (4.2.5)}
+\lb
+Let $T$ be a linear transformation on $V$ with distinct eigenvectors $λ_1, \ldots, λ_k$ and for
+each eigenvalue $λ_j$ consider a linearly independent family of eigenvectors
+\[ \cb{\vec v_1^j, \ldots, \vec v_{n_j}^j} \]
+in $E_{λ_j}$.
+Then the union of all these families of eigenvectors 
+\[ S = \cb{\vec v_1^j, \ldots, \vec v_{n_1}^j} \cup \ldots
+\cup \cb{\vec v_1^k, \ldots, \vec v_{n_k}^k} \]
+is linearly independent in $V$.
+\begin{proof}
+\end{proof}
+
+
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+What is the intersection of eigenspaces to distinct eigenvalues?
+
+
+\newpage
+\lb
+\textbf{Proposition (4.2.6)}
+\lb
+For every linear transformation $T$ on a finite dimensional vector space $V$ the geometric 
+multiplicity is bounded by $1$ and the algebraic multiplicity.
+\[ 1 \leq \dim{E_λ}(T) \leq m_λ \]
+\begin{proof}
+\end{proof}
+
+\vspace{200pt}
+\lb
+\textbf{Theorem (4.2.7)}
+\lb
+For a linear transformation $T$ on a finite dimensional vector space $V$
+with distinct eigenvalues $λ_1, \ldots, λ_k$.
+Then $T$ is diagonalizable if and only if
+\begin{enumerate}
+    \item $m_{λ_1} + \cdots + m_{λ_k} = \dim{V}$
+    \item for each $i$, $\dim{E_{λ_i}} = m_{λ_i}$
+\end{enumerate}
+\textbf{Remark:} The first condition can be dropped if we assume that all roots of $c_T(λ)$ has
+are real valued. We will see a discussion later.
+\begin{proof}
+\end{proof}
+
+
+\newpage
+\lb
+\textbf{Example (4.2.3)}
+\lb
+Diagonalize, if possible the transformation $T$ on $\R^3$ given by the matrix
+\[ A = \begin{pmatrix}
+    2 & 2 & 0 \\
+    0 & 1 & 0 \\
+    0 & 1 & 2
+\end{pmatrix}
+\]
+
+
+
+
+\vspace{300pt}
+\lb
+\textbf{Discussion}
+\lb
+Can you argue with the transformation given by
+\[ B = \begin{pmatrix}
+    0 & -1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 0
+\end{pmatrix}
+\]
+why the condition $m_{λ_1} + \cdots + m_{λ_k} = \dim{V}$ is important in the above theorem?
+
+
+
+
+
+
+
+
+\end{document}
