@@ -35,7 +35,7 @@ A nonzero vector $\vec v ∈ V$ is an eigenvector of $T$ with eigenvalue $λ$ if
 \end{proof}
 \vspace{200pt}
 \lb
-\textbf{Recall \& Discussion}
+\textbf{Discussion}
 \lb
 For a transformation $T ∈ \cal L(V)$ which of these statements are equivalent to 
 \emph{$λ$ is an eigenvalue of $T$}?
@@ -146,10 +146,16 @@ does not depend on the choice of basis.
 \lb
 \textbf{True or False}
 \begin{enumerate}
-    \item $T ∈ \mathcal{L}(V)$ is an isomorphism if and only if $0$ is not an eigenvalue.
-    \item Every transformation has at least one eigenvalue.
-    \item There are infinitely many eigenvectors to every eigenvalue of a transformation.
-    \item There is at least one eigenvector to every eigenvalue of a transformation.
+    \item[$\square$]
+    $T ∈ \mathcal{L}(V)$ is an isomorphism if and only if $0$ is not an eigenvalue.
+    \item[$\square$]
+    Every transformation has at least one eigenvalue.
+    \item[$\square$]
+    There are infinitely many eigenvectors to every eigenvalue of a transformation.
+    \item[$\square$]
+    There is at least one eigenvector to every eigenvalue of a transformation.
+    \item[$\square$]
+    An $n \times n$ matrix can have at most $n$ distinct eigenvalues.
 \end{enumerate}
 
 \vspace{100pt}
@@ -185,7 +191,7 @@ consisting entirely of eigenvectors of $T$.
 
 \lb
 \ble{Why does this definition makes sense?}
-Try to find the matrix $[T]_α^α$ in a basis of eigenvectors $α = \cb{α_1, \ldots, α_n}$
+Try to find the matrix $[T]_α^α$ in a basis of eigenvectors $α = \cb{\vec{α} _1, \ldots, \vec{α}_n}$
 
 
 \vspace{200pt}
@@ -210,11 +216,15 @@ Let $λ$ be an eigenvalue of a linear transformation $T$ on $V$.
 \lb
 \textbf{Proposition (4.2.4)}
 \lb
-Let $\vec v_1, \ldots \vec v_k$ be eigenvectors of a linear transformation $\map{V}[T]{V}$,
+Let $\vec v_1, \ldots \vec v_k$ be eigenvectors to distinct eigenvalues $λ_i$ of a linear transformation $\map{V}[T]{V}$,
 then $ \cb{\vec v_1, \ldots, \vec v_n}$ is linearly independent in $V$.
+\begin{proof}
+\end{proof}
 
 
-\vspace{200pt}
+
+
+\newpage
 \lb
 \textbf{Corollary (4.2.5)}
 \lb
@@ -230,7 +240,7 @@ is linearly independent in $V$.
 \end{proof}
 
 
-\vspace{200pt}
+\vspace{300pt}
 \lb
 \textbf{Discussion}
 \lb
@@ -292,6 +302,12 @@ Can you argue with the transformation given by
 \]
 why the condition $m_{λ_1} + \cdots + m_{λ_k} = \dim{V}$ is important in the above theorem?
 
+
+
+\newpage
+\lb
+\textbf{Remarks}
+\lb
 
 
 
