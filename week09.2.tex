@@ -32,6 +32,144 @@
 \lb
 We have seen that the matrix $ A = \begin{pmatrix} 0 & -1 \\ 1 & 0\end{pmatrix}$ has the
 characteristic polynomial $c_A(λ) = λ^2 + 1$ which has no real roots.
+A root would be a square root $\sqrt{-1}$. Complex numbers solve this problem.
+
+\lb
+\textbf{Definition}
+\lb
+The set of complex number $\bb C$ is the set vector space $\R^2$ with an additional
+multiplication of two complex numbers
+\[ \ttpl{a}{b} \ast \ttpl{c}{d} = \ttpl{ac-bd}{ad+bc} \]
+
+\lb
+\textbf{Remark}
+\lb
+One often writes these coordinate tuples as vectors in the basis $ \cb{1, i}$.
+The coordinate vector $\ttpl{a}{b}$ corresponds then to $a + i b$.
+
+
+\lb
+\textbf{Discussion}
+\lb
+\begin{enumerate}
+    \item Express $\ttpl{2}{3}$ and $\ttpl{-1}{4}$ in the basis and determine
+        $\ttpl{2}{3} \ast \ttpl{-1}{4}$
+    \item Let $W = \spn{1} \subseteq \bb C$. Show that $W$ is closed
+        under the multiplication $\ast$.
+    \item Can we say that $W$ is isomorphic to $\R$? If so, why?
+\end{enumerate}
+
+
+
+
+
+\newpage
+\lb
+\textbf{Definition}
+\lb
+Let $z = a + ib ∈ \bb C$. We call $Re(z) = a$ the \emph{real part} of $z$ and $Im(z) = b$
+the \emph{imaginary part} of $z$.
+
+
+
+\lb
+\textbf{Discussion}
+\lb
+Let $p(x) = x^2 + 1$ and $q(x) = x^4 + 1$.
+\begin{enumerate}
+    \item Find all roots of $p(x)$ in $\bb C$.
+    \item Find all solutions to the equation $i \cdot z = 1$. Can you now give meaning to
+        the expression $\iv i$?
+    \item Find all roots of $q(x)$ in $\bb C$.
+    \item What is the inverse of a complex number $a + ib$ in general?
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $w = a+ ib$ and consider $\map{\bb C}[T_w]{\bb C}$ to be $T_w(z) = w \cdot z$.
+\begin{enumerate}
+    \item Is $T_w$ a linear transformation between real vector spaces? If it is, what is the
+        matrix representing it?
+    \item Under what condition is $T_w$ invertible?
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let  $\map{\bb C}[T]{\bb C}$ to be the function $T(a + ib) = a - ib$.
+\begin{enumerate}
+    \item Is $T_w$ a linear transformation between real vector spaces? If it is, what is the
+        matrix representing it?
+    \item What are eigenvalues and eigenspaces of $T$?
+    \item What is $T \circ T$? Is $T$ invertible?
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section*{Fields}%
+\textbf{Textbook:} Section 5.1
+
+\lb
+\textbf{Goal}
+\lb
+We would like to replace for vector spaces real numbers $\R$ with complex numbers $\bb C$
+because of their obvious advantage that some characteristic polynomials have roots in $\bb C$
+but not in $\R$.
+In order to do so, we axiomatize all properties that our prototypes $\R$ and $\bb C$ satisfy.
+
+
+\lb
+\textbf{Definition (5.1.4)}
+\lb
+A \emph{field} is a set $F$ together with two operations called
+\emph{addition} (+) and \emph{multiplication} $( \cdot )$ if the following axioms are satisfied:
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Which of the following sets are fields? If they are not field,
+explain one axiom that does not hold.
+\begin{enumerate}
+    \item[$\bb N$]
+    ~\vspace{20pt}
+    \item[$\bb Z$]
+    ~\vspace{20pt}
+    \item[$\bb Q$]
+    ~\vspace{20pt}
+    \item[$\bb R$]
+    ~\vspace{20pt}
+    \item[$\bb C$]
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
 
 
 
