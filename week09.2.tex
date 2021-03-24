@@ -158,11 +158,67 @@ explain one axiom that does not hold.
     ~\vspace{20pt}
     \item[$\bb R$]
     ~\vspace{20pt}
+    \item[$\bb \R^+$] $  = \cb{x \in \R ~ \vert ~ x \geq 0}$
+    ~\vspace{20pt}
     \item[$\bb C$]
+\end{enumerate}
+
+\lb
+\textbf{Example}
+\lb
+The finite field $\bb F_p$ with $p$ elements where $p$ is a prime.
+
+\vspace{50pt}
+\lb
+\textbf{Exercise}
+\lb
+\begin{enumerate}
+    \item Write out the addition and multiplication tables for the field $\bb F_3$.
+    \item How can you tell that addition and multiplication are commutative?
+    \item How can you conclude that $0$ is the additive identity?
+    \item How can you conclude that every element has an additive inverse?
+    \item How can you conclude that 1 is the multiplicative identity?
+    \item How can you conclude that every non-zero element has a multiplicative inverse?
 \end{enumerate}
 
 
 
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+\begin{enumerate}
+    \item What are the roots of $p(x) = x^2 -1$ in $\bb F_2$? How about  $\bb F_3$?
+    \item For each of the fields $\R, \Q, \bb C$ and $\bb F_2$, if possible give an example of
+        \begin{enumerate}
+            \item a polynomial that has a root in the field
+            \item a polynomial that does not have a root in the field.
+        \end{enumerate}
+\end{enumerate}
+
+
+\vspace{200pt}
+\lb
+\textbf{Definition (5.1.11)}
+\lb
+A field $F$ is called algebraically closed if every non-constant polynomial with coefficients in
+$F$ has a root in $F$.
+
+\vspace{20pt}
+\lb
+\textbf{Discussion}
+\lb
+Decide which of the fields $\R, \Q, \bb C$ and $\bb F_2$ is algebraically closed.
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Theorem (5.1.12 Fundamental Theorem of Algebra)}
+\lb
+$\bb C$ is algebraically closed, that is, every plynomial of degree $n$
+\[ p(x) = a_n x^n + \dots + a_0 \]
+has $n$ roots counted with multiplicity.
 
 
 
@@ -172,5 +228,101 @@ explain one axiom that does not hold.
 
 
 
+
+\newpage
+\section*{Vector Spaces over a Field}%
+\textbf{Textbook:} Section 5.2
+
+
+\lb
+\textbf{Definition 5.2.1}
+\pr
+A vector space $(V, + , \cdot)$ over a field $F$ consists of a set $V$ and two operations that we
+call \emph{addition} $(+)$ and \emph{scalar multiplication} $\cdot$
+\[ \map{V \times V}[+]{V} \]
+\[ \map{F \times V}[\cdot]{V} \]
+such that the following axioms hold
+\begin{enumerate}
+    \item
+        (additive closure)
+        \qquad $\vec x + \vec y ∈ V$,
+        for all $\vec x, \vec y ∈ V$
+    \item
+        (multiplicative closure)
+        \qquad $α \cdot \vec x ∈ V$,
+        for all $\vec x ∈ V$ and scalars $α ∈ F$
+    \item
+        (commutativity)
+        \qquad $\vec x + \vec y = \vec y + \vec x$,
+        for all $\vec x, \vec y ∈ V$
+    \item
+        (additive associativity)
+        \qquad $(\vec x + \vec y) + \vec z =\vec x + (\vec y + \vec z)$,
+        for all $\vec x , \vec y , \vec z ∈ V$
+    \item
+        (additive identity)
+        \qquad There exists a vector $\vec 0 ∈ V$ such that $\vec x + \vec 0 = \vec x$
+        for all $\vec x ∈  V$
+    \item
+        (additive inverse)
+        \qquad For each $\vec x ∈ V$, there exists a vector $- \vec x ∈ V$
+        with the property that $\vec x + (- \vec x) = \vec 0$
+    \item
+        (multiplicative associativity)
+        \qquad $(α \cdot β) \cdot \vec x = α \cdot ( β \cdot \vec x)$,
+        for all $α, β ∈ F$ and $\vec x ∈ V$
+    \item
+        (distributivity over vector addition)
+        \qquad $α \cdot ( \vec x + \vec y) = α \vec x + α \vec y$,
+        for all $α ∈ F$ and $\vec x, \vec y ∈ V$
+    \item
+        (distributivity over scalar addition)
+        \qquad $(α + β) \cdot  \vec x = α \vec x + β \vec x$,
+        for all $α, β ∈ F$ and $\vec x ∈ V$
+    \item
+        (identity property)
+        \qquad $1 \cdot \vec x = \vec x$,
+        for all $\vec x ∈ V$, $1 ∈ F$
+\end{enumerate}
+
+
+
+\vspace{20pt}
+
+\lb
+\textbf{Examples}
+\begin{enumerate}
+    \item $F^n$, the set of $n$-tuples in a field $F$
+    \item $\mat{n}{F}$, the set of $n\times n$ matrices with entries from $F$.
+    \item $\pol{n}{F}$, the set of polynomials of degree $n$ with coefficients in $F$.
+    \item $\mathbb{C}^n$ may be thought of as a complex vector space or a real vector space.
+\end{enumerate}
+
+
+\vspace{80pt}
+\lb
+\textbf{Remark}
+\lb
+Specifying the field for a vector space is important!
+The vectors $\ttpl{i}{2}$ and $\ttpl{-1}{2i}$ in are dependent in $\mathcal{C}^2$ as a complex
+vector space, but independent in $\mathcal{C}^2$ as a real vector space.
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Consider $V = \R$ as a vector space over $\Q$.
+\begin{enumerate}
+    \item Is the family of vector $ \cb{1, \sqrt{2}}$ linearly independent or dependent?
+    \item What is the dimension of the subspace $\spn{1, \sqrt{2}, \sqrt{3}, \sqrt{4}}$?
+    \item What do the above results suggest about $\dim(V)$?
+\end{enumerate}
+
+\vspace{200pt}
+\lb
+\textbf{Remark}
+\lb
+Everything we did about vector spaces, matrices, inverse matrices, determinants, eigenvalues, ...
+can be applied to a vector space over a field. See Example (5.2.8-10) in the book for examples.
 
 \end{document}
