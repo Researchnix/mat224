@@ -1,0 +1,396 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Triangular and Nilpotent Matrices}
+\rhead{Week 10}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Triangular Form}%
+\textbf{Textbook:} Section 6.1
+
+\pr
+A diagonalizable matrix is in its \emph{normal form} when it is diagonal. And every
+diagonalizable matrix can be brought to a diagonal form with a change of basis to
+a \emph{canonical basis}.
+\lb
+Some matrices are not diagonalizable, what are their canonical forms and canonical bases?
+The remaining sections 6.1-6.4 answer this quetsion step by step.
+
+\lb
+For this entire lecture, let $V$ be a finite dimensional vector space over a field $F$.
+
+\lb
+\textbf{Definition}
+\lb
+A matrix $A ∈ \mat{n}{F}$ is called \emph{upper triangular} if all entries below the diagonal
+are 0. For example,
+\[
+    \begin{pmatrix}
+        \ast & \ast & \ast \\
+        0 & \ast & \ast \\
+        0 & 0 & \ast \\
+    \end{pmatrix}
+\]
+
+\lb
+\textbf{Definition (6.1.2)}
+\lb
+Let $\map{V}[T]{V}$ be a linear transformation. A subspace $W \subseteq V$ is called
+\emph{invariant} or \emph{stable} under $T$ if $T(W) \subseteq W$.
+
+\lb
+\textbf{Examples}
+\begin{enumerate}
+    \item Let $\map{F^3}[P_{xy}]{F^3}$ be the projection on the xy-plane. Then the xy-plane is
+        an invariant subspace for it.
+    \item $ \cb{0} $ and $V$ are always invariant subspaces for any transformation
+        $T ∈ \mathcal{L}(V)$.
+\end{enumerate}
+
+\vspace{40pt}
+\lb
+\textbf{Discussion}
+\lb
+Let $\map{V}[T]{V}$ be a linear transformation such that in a basis
+$β = \cb{\vec v_1, \vec v_2, \vec v_3}$
+\[ [T]_β^β = \begin{pmatrix}  2 & 1 & -1 \\  & 3 & 1 \\  &  & 3 \end{pmatrix} \]
+
+\begin{enumerate}
+    \item Is $\spn{\vec v_1}$ invariant?
+    \item Can you find three subspaces $W_1 \subset W_2 \subset W_3 $ which are all invariant?
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Proposition (6.1.4)}
+\lb
+A linear transformation $\map{V}[T]{V}$ is upper triangular in a basis $β$ if and only if for
+each $i$, $1 \leq i \leq \dim(V)$
+\[ W_i = \spn{\vec v_1, \ldots, \vec v_i} \]
+is invariant.
+\begin{proof}
+\end{proof}
+\vspace{200pt}
+
+\lb
+\textbf{Definition (6.1.5)}
+\lb
+A linear transformation $\map{V}[T]{V}$ is called triangulizable if there exists a basis $β$
+such that $[T]_β^β$ is upper trianglar.
+
+\lb
+We skip a technical result from proposition 6.1.6 in the book and directly state
+\lb
+\textbf{Theorem (6.1.8)}
+\lb
+A linear transformation $\map{V}[T]{V}$ is triangulizable if and only if
+the characterstic polynomial $c_T(λ)$ has $dim(V)$ roots (counted with multiplicity).
+
+\vspace{100pt}
+
+
+\lb
+\textbf{Discussion}
+\lb
+Let $A ∈ \mat{n}{\bb C}$. Why is there always an upper trianglar matrix $B ∈ \mat{n}{\bb C}$
+which is similar to $A$?
+
+\newpage
+\lb
+\textbf{Notation}
+\lb
+If $p(x) = a_n x^k + \dots + a_0$ is a polynomial in $\pol{k}{F}$ and $A ∈ \mat{n}{F}$, we
+define
+\[ p(A) = a_n A^k + \dots + a_0 I_n \]
+
+
+\lb
+\textbf{Discussion}
+\begin{enumerate}
+    \item Suppose $A, B ∈ \mat{n}{F}$ are similar matrices such that
+        $A = Q B \iv Q$ for an invertible matrix $Q ∈ \mat{n}{F}$.
+        Show that
+        \[ p(A) = Q p(B) \iv Q \]
+    \item Suppose that
+        \[ A = \begin{pmatrix}
+            λ_1 & \ast & \cdots& \ast \\
+                & λ_2 & & \vdots \\
+                & & \ddots &  \ast \\
+                & & & λ_n
+        \end{pmatrix}
+    \]
+    is an upper triangular matrix. Compute $c_A(λ)$ and $c_A(A)$.
+\end{enumerate}
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Theorem (6.1.12)}
+\lb
+Let $\map{V}[T]{V}$ be a linear transformation and assume that
+$c_A(λ)$ has $dim{V}$ roots in $F$. Then $c_T(T) = 0$.
+\begin{proof}
+    \emph{( Sketch of proof )}
+\end{proof}
+
+
+
+\newpage
+\section*{Nilpotent Normal Forms}%
+\textbf{Textbook:} Section 6.2
+
+\lb
+The next kind of matrices we want to bring into a normal form are nilpotent matrices. Remember
+that for the reminder of these notes $V$ is a finite dimensional vector space over a field $F$.
+
+\lb
+\textbf{Definition}
+\lb
+A linear transformation $\map{V}[N]{V}$ is called
+\emph{nilpotent} if $N^n = 0$ for some $n \geq 1$.
+The least $n$ such that $N^n = 0$ is called the \emph{index} of the nilpotent transformation.
+
+
+\lb
+\textbf{Discussion}
+\begin{enumerate}
+    \item Suppose $\map{V}[N]{V}$ is nilpotent, does $N$ always have an eigenvector?
+    \item Suppose $\map{V}[N]{V}$ is nilpotent and $λ$ is an eigenvalue of $N$. What can $λ$ be?
+    \item Suppose $\map{V}[T]{V}$ has only one distinct eigenvalue $λ=0$ of multiplicity
+        $ m_λ = \dim(V)$. Is $T$ nilpotent?
+\end{enumerate}
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Observation}
+\lb
+For a nilpotent transformation $\map{V}[N]{V}$ and $\vec v ∈ V$ nonzero
+\[ N^k (\vec v) = 0\]
+for $1 \leq k \leq n$, but not necessarily $n = k$!
+
+
+
+\vspace{140pt}
+\lb
+\textbf{Deifnition (6.2.1)}
+\lb
+Let $\map{V}[N]{V}$ be a nilpotent transformation on $V$ and $\vec v ∈ V$
+nonzero with $k$ as above.
+
+\begin{enumerate}
+    \item The set $α = \cb{N^{k-1}(\vec v), N^{k-2}(\vec v), \ldots, \vec v}$ is called the
+        \emph{cycle} generated by $\vec v$.
+        \pr $\vec v$ is called the \emph{inital vector} of this cycle.
+    \item The subspace generated by this cycle $C(\vec v) = \spn{α}$ is called the
+        \emph{cyclic subspace} generated by $\vec v$.
+    \item We call $k$ the \emph{length} of the cycle.
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\begin{enumerate}
+    \item Is $ \frac{d^2}{dx^2} $ nilpotent on $\pol{n}{F}$? What is the index?
+    \item Can you find a polynomial $p ∈ \pol{n}{F}$ that generates a cycle of length 3?
+\end{enumerate}
+
+
+\lb
+Look at Example (6.2.2) in the book for another example.
+
+
+\vspace{200pt}
+\lb
+\textbf{Proposition (6.2.3)}
+\lb
+Let $\map{V}[N]{V}$ be a nilpotent transformation on $V$ and $\vec v ∈ V$.
+\begin{enumerate}
+    \item If $\vec v$ generates a cycle of length $k$, then $N^{k-1}(\vec v)$ is
+        an eigenvector of $N$ with eigenvalue $λ=0$.
+    \item $C(\vec v)$ is an invariant subspace for $N$.
+    \item The cycle $α$ generated by $\vec v$ is independent and hence a basis for $C(\vec v)$.
+\end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+\newpage
+\lb
+\textbf{Notation (Cycle tableau)}
+\lb
+Let $\map{V}[N]{V}$ be a nilpotent transformation on $V$.
+\begin{enumerate}
+    \item Write for a cycle $α$ of length $k$ a row of $k$
+        boxes to represent every element in $α$.
+        \vspace{100pt}
+    \item If we consider $r$ cycles $α_1, \ldots, α_r$ generated by $\vec v_1, \ldots, \vec v_r$
+        each of length $k_1, \ldots, k_r$ write $r$ rows of boxes sorted by length.
+        \vspace{100pt}
+        \lb
+        We call this the \emph{cycle tableau} of the cycles $α_1, \ldots α_r$.
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Consider the following cycle tableau of the cycles $α_1, α_2, α_3$ of a nilpotent transformation
+$\map{V}[N]{V}$.
+\vspace{100pt}
+\lb
+Which of the boxes necessarily correspond to elements in
+\begin{enumerate}
+    \item ker($N$)
+    \item im($N$)
+    \item im($N^2$)
+    \item ker($N) \cap \tx{im}(N^3)$
+\end{enumerate}
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $\map{V}[N]{V}$ be a nilpotent transformation on a vector space $V$ of dimension $6$.
+\begin{enumerate}
+    \item If $\vec v$ generates a cycle $α$ of length $6$,
+        \begin{enumerate}
+            \item is $α$ a basis for $V$?
+            \item What is $[N]_α^α$?
+        \end{enumerate}
+    \item If $α_1, α_2, α_3$ are cycles of lengths $1, 2$ and $3$ such that
+        $β = α_1 \cup α_2 \cup α_3$ is linearly independent,
+        \begin{enumerate}
+            \item is $β$ a basis for $V$?
+            \item What is $[N]_β^β$?
+        \end{enumerate}
+
+    \item
+        Does the matrix $[N]_β^β$ depend on the particular elements in $β$?
+\end{enumerate}
+
+\newpage
+\lb
+\textbf{Notation}
+\lb
+\begin{enumerate}
+    \item \emph{nilpotent Jordan block} of size $k$
+    \vspace{150pt}
+    \item direct sum of matrices
+    \vspace{150pt}
+    \item \emph{nilpotent Jordan matrix}
+\end{enumerate}
+
+
+
+\vspace{150pt}
+\lb
+\textbf{Goal:} For a nilpotent transformation, we want to find a basis consisting of cycles.
+\lb
+\q{How many cycles do we need? Which cycles can we use? How do we find these cycles?}
+
+
+\newpage
+\lb
+\textbf{Proposition (6.2.4)}
+\lb
+Let $α_1, \ldots, α_r$ be cycles of lengths $k_i$ respectively, generated by $\vec v_i$.
+If the set of eigenvectors
+\[ \cb{N^{k_1 -1} (\vec v_1) , \ldots, N^{k_r -1} (\vec v_r)} \]
+is linearly independent, then the union 
+\[ α_1 \cup \cdots \cup α_r \]
+is linearly independent.
+\begin{proof}
+\end{proof}
+
+
+
+\vspace{300pt}
+\lb
+\textbf{Definition (6.2.5 \& 6.2.7)}
+\lb
+Let $\map{V}[N]{V}$ be a nilpotent transformation.
+\begin{enumerate}
+    \item Cycles $α_1, \ldots, α_r$ such that $ α_1 \cup \cdots \cup α_r $ is linearly independent are called \emph{non-overlapping} cycles.
+    \item A basis of $V$ consisting of non-overlapping cycles for $N$ is called
+        a \emph{canonical basis} for $N$.
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Theorem (6.2.8)}
+\lb
+Every nilpotent transformation $\map{V}[N]{V}$, has a canonical basis on $V$.
+
+
+
+\vspace{40pt}
+\lb
+\textbf{Lemma (6.2.9)}
+\lb
+The cycle tableau of a canonical basis for $N$ has
+\[ \dim(\ker(N^j)) - \dim(\ker(N^{j-1})) \]
+boxes in column $j$.
+
+\vspace{40pt}
+\lb
+\textbf{Discussion (6.2.10)}
+\lb
+Let $\map{V}[N]{V}$ be a nilpotent transformation such that
+\begin{itemize}
+    \item $\dim(\ker(N)) = 3$
+    \item $\dim(\ker(N^2)) = 5$
+    \item $\dim(\ker(N^3)) = 7$
+    \item $\dim(\ker(N^4)) = 8$
+\end{itemize}
+What shape does the cycle tableau of a canonical basis for $N$ must have?
+What is the canonical form of the transformation $N$ is such a basis?
+
+\vspace{200pt}
+\lb
+\textbf{Corollary (6.2.11)}
+\lb
+The canonical form of a nilpotent transformation is unique up to reordering
+the nilpotent Jordan blocks. ( By convention we sort them by size. )
+
+
+
+
+
+\vspace{40pt}
+\lb
+\textbf{Next time: } How can we find such a canonical basis explicitly?
+
+
+
+
+
+
+
+\end{document}
