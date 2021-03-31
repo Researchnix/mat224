@@ -1,0 +1,240 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Jordan Canonical Form}
+\rhead{Week 11}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Jordan Canonical Form}%
+\textbf{Textbook:} Section 6.3 \& 6.4
+
+\lb
+\textbf{Goal:} We Would would like to improve the upper triangular form of
+triangulizable matrices.
+
+
+\lb
+\textbf{Discussion}
+\lb
+Suppose we have the linear transformation $T(p) = \frac{d^2}{dx^2} p + p$ on $\pol{3}{\bb C}$.
+\begin{enumerate}
+    \item What are the eigenvalues of $T$?
+    \item Why is $N = T - I$ nilpotent?
+    \item What is the nilpotent Jordan form of $N$?
+    \item Find a canonical basis $α$ of $N$, what is $[T]_α^α$ in this basis?
+\end{enumerate}
+
+\newpage
+\lb
+\textbf{Notation}
+\lb
+\begin{enumerate}
+    \item \emph{Jordan block} of size $k \times k$ $J_m(λ)$
+    \vspace{140pt}
+\item \emph{Jordan matrix} $J = J_{m_1}(λ_1) \oplus \cdots \oplus J_{m_k}(λ_k)$
+\end{enumerate}
+
+
+
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+Let $T$ be a linear transformation on a complex vector space of dimension $4$ with only a single
+eigenvalue $λ_1$.
+\begin{enumerate}
+    \item What is the characteristic polynomial $c_T(λ)$?
+    \item Is $T- λ_1 I$ nilpotent?
+    \item List all possible Jordan forms of $T$.
+\end{enumerate}
+\textbf{Hint: } Corollary (6.1.11) says that a triangulizable matrix can in particular be written
+in a canonical form where the diagonal only contains eigenvalues.
+
+
+
+\newpage
+\lb
+\q{\textbf{Problem: } What if $T$ on $V$ has more than one distinct eigenvalue? }
+
+\lb
+\textbf{Notation}
+\lb
+\begin{enumerate}
+    \item Let $T$ be a linear transformation on $V$ with an invariant subspace $W \subseteq V$.
+        We denote by $T \vert _W$ the restriction of $T$ to $W$.
+    \item Suppose $V = W_1 \oplus W_2$ is the direct sum of two invariant subspaces of $T$.
+        $T$ is fully determined by its restrictions to $W_1$ and $W_2$.
+        Moreover, if $α$ and $β$ are bases of $W_1$ and $W_2$ respectively
+        \[ [T]_γ^γ = [T]_α^α \oplus [T]_β^β \]
+        in the basis $γ = α \cup β$ as a direct sum of matrices.
+\end{enumerate}
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Goal}
+\lb
+Why does this help us? If we can find invariant subspaces $W_1, \ldots, W_k$ such that
+$T \vert _{W_i}$ has only one distinct eigenvalue $λ_i$, we can find the Jordan canonical form
+of $T \vert _{W_i}$ and take the direct sum for each invarinat subspace.
+
+
+
+\vspace{100pt}
+\lb
+\textbf{Definition (6.3.2)}
+\lb
+Let $T$ be a linear transformation on a finite-dimensional vector space $V$ with an eigenvalue
+$λ$ of multiplicity $m$
+\begin{enumerate}
+    \item The \emph{λ-generalized eigenspace} $K_λ$ is teh kernel of the transformation
+        $(T-λI)^m$ on $V$.
+    \item The nonzero elements of $K_λ$ are called \emph{generalized eigenvectors} of $T$
+        with eigenvalue $λ$.
+\end{enumerate}
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $V$ be a vector space with basis $α = \cb{\vec v_1, \ldots, \vec v_5}$ and $T$ a linear
+transformation on $V$ such that
+\[ [T]_α^α = J_2(2) \oplus J_2(3) \oplus J_1(3) \]
+\begin{enumerate}
+    \item Find all eigenvalues of $T$ with their multiplicity.
+    \item Find all the eigenspaces of $T$.
+    \item Find all of the generalized eigenspaces of $T$.
+    \item Is $T$ diagonalizable?
+\end{enumerate}
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $V$ be a vector space with basis $α = \cb{\vec v_1, \ldots, \vec v_5}$ and $T$ a linear
+transformation on $V$ such that
+\[ [T]_α^α = J_2(2) \oplus J_2(3) \oplus J_1(3) \]
+\begin{enumerate}
+    \item Are the generalized eigenspaces invariant?
+    \item Can you write $V$ as a direct sum of subspaces such that $T$ restricted to each
+        of them has exactly one eigenvalue?
+\end{enumerate}
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+Let $T$ be a linear transformation on a $V$ be a finite dimensional vector space with
+eigenvalue $λ$ of multiplicity $m$.
+\begin{enumerate}
+    \item Show that $T \vert _{K_λ}$ has only the eigenvalue $λ$
+    \item Is $(T-λI) \vert _{K_λ}$ nilpotent?
+    \item Show that $K_λ$ is an invariant subspace in $V$.
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Proposition (6.3.4)}
+\lb
+Let $T$ be a linear transformation on a $V$ be a finite dimensional vector space.
+\begin{enumerate}
+    \item For each eigenvalue $λ$ of $T$, $K_λ$ is an invariant subspace of $V$.
+    \item If $λ_1, \ldots, λ_k$ are all the distinct eigenvalues of $T$, then 
+        $V = K_{λ_1} \oplus \cdots \oplus K_{λ_k}$.
+    \item If $λ$ is an eigenvalue of multiplicity $m$, then $\dim(K_λ) = m$.
+\end{enumerate}
+\begin{proof}
+\end{proof}
+
+
+
+% another discussion from page 5/8
+
+
+\newpage
+\lb
+\textbf{Theorem (6.3.6)} (Jordan Canonical Form)
+\lb
+Let $T$ be a linear transformation on a finite dimensinal vector space $V$ whose characteristic
+polynomial has $\dim(V)$ roots in the field $F$ over which $V$ is defined. Then
+\begin{itemize}
+    \item $V$ has a \emph{canonical basis} $γ$ in which $[T]_γ^γ$ is a Jordan matrix.
+    \item Moreover, this decomposition of $[T]_γ^γ$ into Jordan blocks is unique up to
+        reordering of the Jordan blocks.
+\end{itemize}
+
+\lb
+We call this the \emph{Jordan canonical form} of a linear transformation.
+\lb
+\begin{proof}
+\end{proof}
+
+
+\vspace{200pt}
+\lb
+\textbf{Discussion}
+\lb
+Let $T$ be a linear transformation on a vector space $V$ such that
+\begin{enumerate}
+    \item $c_T(λ) = (λ-2)^3 (λ+1)^4(λ-5)$
+    \item The dimension of the eigenspaces $E_2, E_{-1}$ and $E_5$ are 1, 2 and 1, respectively.
+    \item $(T+I)^2 \vert_{K_{-1}} = 0$
+\end{enumerate}
+Find the Jordan canonical form of $T$ with the eigenvalues listed in the order 2, $-1$, 5.
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion}
+\lb
+All matrices $A$ in $\mat{2}{\bb C}$ are similar to either
+$ \begin{pmatrix} λ_1 & 0 \\ 0 & λ_2 \end{pmatrix} $ or
+$ \begin{pmatrix} λ & 1 \\ 0 & λ \end{pmatrix} $.
+
+
+\vspace{300pt}
+\lb
+In general, we can prove
+\lb
+\textbf{Corollary}
+\lb
+Two matrices are similar if and only if they have the same Jordan
+canonical form up to reordering.
+
+\newpage
+\lb
+\textbf{Exercise 2 in section 6.4}
+\lb
+
+% Which of these matrices are similar...
+
+
+
+\end{document}
