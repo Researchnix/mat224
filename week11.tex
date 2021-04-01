@@ -46,7 +46,7 @@ Suppose we have the linear transformation $T(p) = \frac{d^2}{dx^2} p + p$ on $\p
 \textbf{Notation}
 \lb
 \begin{enumerate}
-    \item \emph{Jordan block} of size $k \times k$ $J_m(λ)$
+    \item \emph{Jordan block} of size $k \times k$ with eigenvalue $λ$,  $J_m(λ)$
     \vspace{140pt}
 \item \emph{Jordan matrix} $J = J_{m_1}(λ_1) \oplus \cdots \oplus J_{m_k}(λ_k)$
 \end{enumerate}
@@ -80,7 +80,7 @@ in a canonical form where the diagonal only contains eigenvalues.
     \item Let $T$ be a linear transformation on $V$ with an invariant subspace $W \subseteq V$.
         We denote by $T \vert _W$ the restriction of $T$ to $W$.
     \item Suppose $V = W_1 \oplus W_2$ is the direct sum of two invariant subspaces of $T$.
-        $T$ is fully determined by its restrictions to $W_1$ and $W_2$.
+        Then $T$ is fully determined by its restrictions to $W_1$ and $W_2$.
         Moreover, if $α$ and $β$ are bases of $W_1$ and $W_2$ respectively
         \[ [T]_γ^γ = [T]_α^α \oplus [T]_β^β \]
         in the basis $γ = α \cup β$ as a direct sum of matrices.
@@ -105,7 +105,7 @@ of $T \vert _{W_i}$ and take the direct sum for each invarinat subspace.
 Let $T$ be a linear transformation on a finite-dimensional vector space $V$ with an eigenvalue
 $λ$ of multiplicity $m$
 \begin{enumerate}
-    \item The \emph{λ-generalized eigenspace} $K_λ$ is teh kernel of the transformation
+    \item The \emph{λ-generalized eigenspace} $K_λ$ is the kernel of the transformation
         $(T-λI)^m$ on $V$.
     \item The nonzero elements of $K_λ$ are called \emph{generalized eigenvectors} of $T$
         with eigenvalue $λ$.
@@ -161,7 +161,8 @@ eigenvalue $λ$ of multiplicity $m$.
 \lb
 \textbf{Proposition (6.3.4)}
 \lb
-Let $T$ be a linear transformation on a $V$ be a finite dimensional vector space.
+Let $T$ be a linear transformation on a $V$ be a finite dimensional vector space such that
+$c_T(λ)$ has $\dim(V)$ roots.
 \begin{enumerate}
     \item For each eigenvalue $λ$ of $T$, $K_λ$ is an invariant subspace of $V$.
     \item If $λ_1, \ldots, λ_k$ are all the distinct eigenvalues of $T$, then 
