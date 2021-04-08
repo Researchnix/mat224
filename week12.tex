@@ -1,0 +1,164 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+\input{ltx/pkg/preamble}
+
+
+
+
+
+\begin{document}
+
+\lhead{MAT224 Linear Algebra II}
+\chead{Review Session}
+\rhead{Week 12}
+
+\title{Linear Algebra II \\ \Large{MAT224}}
+\author{Lennart Döppenschmitt}
+% \maketitle
+% \tableofcontents
+
+\section*{Review Session}%
+\textbf{Textbook:} All of it! \footnote{Everything we covered.}
+
+
+\lb
+\textbf{Discussion 1}
+\lb
+\begin{enumerate}
+    \item Let $U \subseteq \pol{n}{\bb C}$ be the subset of polynomials that
+        satisfy $p'(x) =x \cdot p(x)$. Explain why this is a subspace or not.
+    \item Let $W$ be the line of points in $ \ttpl{x}{y} ∈ \bb C^2$ that satisfy the equation
+        \[ 5x - 3iy + 2 = 0 \]
+        Explain why this is a subspace or not.
+\end{enumerate}
+
+\newpage
+\lb
+\textbf{Discussion 2}
+\lb
+\begin{enumerate}
+    \item Prove that $U$ is a subspace of $V$ if and only if $\spn{U} = U$.
+    \item We have seen that $\spn{S} = \spn{R}$ for families of vectors $S$ and $R$ in a
+        vector space $V$ if $S \subseteq \spn{R}$ and $R \subseteq \spn{S}$.
+        Is the converse true as well?
+    \item Give an example where $R \neq S$, but $\spn{R} = \spn{S}$.
+\end{enumerate}
+
+
+\newpage
+\lb
+\textbf{Discussion 3}
+\lb
+Why can the vector space $\mat{2}{\bb C}$ of $2 \times 2$ matrices be written as a direct sum
+of symmetric and antisymmetric matrices?
+\[ \mat{2}{\bb C} = \mathcal{S} \oplus \mathcal{A} \]
+
+
+\newpage
+\lb
+\textbf{Discussion 4}
+\lb
+Suppose $V = U \oplus W$ and $S$ and $R$ are linearly independent families of vectors in $U$
+and $W$ respectively. Show that $S \cup R$ is linearly independent in $V$.
+
+\newpage
+\lb
+\textbf{Discussion 5}
+\lb
+Complete the family of polynomials $ \cb{1 - x ~,~ 1 - x + x^2} $
+to find a basis of $\pol{3}{\R}$.
+
+\newpage
+\lb
+\textbf{Discussion 6}
+\lb
+\begin{enumerate}
+    \item  Let $T$ be a transformation from $V$ to $W$. Is the preimage
+        $\iv T (\vec y)$ for $\vec y ∈ W$ a subspace of $V$?
+    \item Fix one vector $\vec x_0 ∈ \iv T (\vec y)$. Show that any other vector
+        $\vec x ∈ \iv T (\vec y)$ can be written as
+        \[ \vec x = \vec x_0 + \vec k \]
+        for some $\vec k ∈ \tx{ker}(T)$.
+\end{enumerate}
+
+\newpage
+\lb
+\textbf{Discussion 7}
+\lb
+Let $T$ be a linear transformation on $V$.
+\pr Explain why the dimension of the
+kernel $\ker(T)$ is equal to $\dim{V} - \tx{rank}([T]_α^α)$.
+
+
+\newpage
+\lb
+\textbf{Discussion 8}
+\lb
+All matrices $A$ in $\mat{2}{\bb C}$ are similar to either
+$ \begin{pmatrix} λ_1 & 0 \\ 0 & λ_2 \end{pmatrix} $ or
+$ \begin{pmatrix} λ & 1 \\ 0 & λ \end{pmatrix} $.
+
+
+
+
+\newpage
+\lb
+\textbf{Discussion 9}
+\lb
+If $N$ is a nilpotent transformation on $V$, then $\ker(N^j) < \ker(N^{j+1})$
+for all $j < \tx{index}(N)$.
+
+\newpage
+\lb
+\textbf{Discussion 10}
+\lb
+Compute the inverse of the left-shift transformation on a vector space $V$ in a given a basis
+$α$.
+
+
+\newpage
+\lb
+\textbf{Discussion 11}
+\lb
+At how many points do we need to evaluate a polynomial of degree $3$  to reconstruct it?
+Explain your answer in terms of a linear transformation
+\begin{align*}
+    \pol{3}{\R} &\ra \R^n \\
+    p(x) &\mapsto \tttpl{p(x_1)}{\vdots}{p(x_n)}
+\end{align*}
+
+
+\newpage
+\lb
+\textbf{Discussion 12}
+\lb
+Two eigenvectors $\vec v$ and $\vec w$ of $T$ with different eigenvalues $λ$ and $σ$ are
+linearly independent.
+
+\newpage
+\lb
+\textbf{Discussion 13}
+\lb
+What are the real and imaginary parts of $\frac{1}{a + ib}$?
+
+
+
+\newpage
+\lb
+\textbf{Discussion 14}
+\lb
+Consider $V = \R$ as a vector space over $\Q$.
+\begin{enumerate}
+    \item Is the family of vector $ \cb{1, \sqrt{2}}$ linearly independent or dependent?
+    \item What is the dimension of the subspace $\spn{1, \sqrt{2}, \sqrt{3}, \sqrt{4}}$?
+    \item What do the above results suggest about $\dim(V)$?
+\end{enumerate}
+
+\end{document}
+
+
